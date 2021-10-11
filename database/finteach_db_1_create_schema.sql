@@ -61,7 +61,6 @@ CREATE TABLE "module" (
   "img_ref" text,
   "module_length" text,
   "etc" text, --estimated time of completion
-  "submodule_id" int
 );
 
 CREATE TABLE "submodule" (

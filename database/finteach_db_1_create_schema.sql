@@ -7,6 +7,8 @@ DROP TABLE IF EXISTS "assigned_modules" CASCADE;
 DROP TABLE IF EXISTS "module" CASCADE;
 DROP TABLE IF EXISTS "submodule" CASCADE;
 DROP TABLE IF EXISTS "content_field" CASCADE;
+DROP TABLE IF EXISTS "quiz" CASCADE;
+DROP TABLE IF EXISTS "quiz_options" CASCADE;
 DROP TABLE IF EXISTS "tags" CASCADE;
 DROP TABLE IF EXISTS "lkp_tag" CASCADE;
 
@@ -81,13 +83,19 @@ CREATE TABLE "content_field" (
   "order" int
 );
 
--- Decide on quiz scheme
---
--- CREATE TABLE "quiz" (
---   "id" SERIAL PRIMARY KEY,
---   "p_submodule_id" int
--- );
---
+CREATE TABLE "quiz" (
+  "id" SERIAL PRIMARY KEY,
+  "p_submodule_id" int,
+  "question" text,
+  "img_ref" varchar
+);
+
+CREATE TABLE "quiz_options" (
+  "id" SERIAL PRIMARY KEY,
+  "quiz_id" int,
+  "content" text,
+  "order" int
+);
 
 CREATE TABLE "tags" (
   "id" SERIAL PRIMARY KEY,
@@ -111,7 +119,9 @@ ALTER TABLE "students" ADD FOREIGN KEY ("student_id") REFERENCES "users" ("id");
 
 ALTER TABLE "classroom" ADD FOREIGN KEY ("teacher_id") REFERENCES "users" ("id");
 
--- ALTER TABLE "submodule" ADD FOREIGN KEY ("id") REFERENCES "quiz" ("p_submodule_id");
+ALTER TABLE "quiz" ADD FOREIGN KEY ("p_submodule_id") REFERENCES "submodule" ("id");
+
+ALTER TABLE "quiz_options" ADD FOREIGN KEY ("quiz_id") REFERENCES "quiz" ("id");
 
 ALTER TABLE "module_progress" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");
 

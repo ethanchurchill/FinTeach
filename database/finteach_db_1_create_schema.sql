@@ -1,3 +1,6 @@
+-- -----------------------------
+-- Delete Tables if they exists.
+-- -----------------------------
 DROP TABLE IF EXISTS "users" CASCADE;
 DROP TABLE IF EXISTS "classroom" CASCADE;
 DROP TABLE IF EXISTS "students" CASCADE;
@@ -13,33 +16,36 @@ DROP TABLE IF EXISTS "tags" CASCADE;
 DROP TABLE IF EXISTS "lkp_tag" CASCADE;
 
 
+-- --------------
+-- Table Creation
+-- --------------
 CREATE TABLE "users" (
   "id" SERIAL PRIMARY KEY,
   "username" text,
   "password" varchar, --find authenatiction system
   "name" text,
   "email" text,
-  "created_date" timestamp,
-  "user_type" int
+  "created_date" timestamp
+  -- "user_type" int
 );
 
-CREATE TABLE "classroom" (
-  "id" SERIAL PRIMARY KEY,
-  "teacher_id" int,
-  "name" text,
-  "roster_count" int
-);
+-- CREATE TABLE "classroom" (
+--   "id" SERIAL PRIMARY KEY,
+--   "teacher_id" int,
+--   "name" text,
+--   "roster_count" int
+-- );
+--
+-- CREATE TABLE "students" (
+--   "id" SERIAL PRIMARY KEY,
+--   "student_id" int,
+--   "classroom_id" int
+-- );
 
-CREATE TABLE "students" (
-  "id" SERIAL PRIMARY KEY,
-  "student_id" int,
-  "classroom_id" int
-);
-
-CREATE TABLE "lkp_user_type" (
-  "id" SERIAL PRIMARY KEY,
-  "type" varchar
-);
+-- CREATE TABLE "lkp_user_type" (
+--   "id" SERIAL PRIMARY KEY,
+--   "type" varchar
+-- );
 
 CREATE TABLE "module_progress" (
   "id" SERIAL PRIMARY KEY,
@@ -49,11 +55,11 @@ CREATE TABLE "module_progress" (
   "user_id" int
 );
 
-CREATE TABLE "assigned_modules" (
-  "id" SERIAL PRIMARY KEY,
-  "module_id" int,
-  "classroom_id" int
-);
+-- CREATE TABLE "assigned_modules" (
+--   "id" SERIAL PRIMARY KEY,
+--   "module_id" int,
+--   "classroom_id" int
+-- );
 
 CREATE TABLE "module" (
   "id" SERIAL PRIMARY KEY,
@@ -87,6 +93,7 @@ CREATE TABLE "quiz" (
   "id" SERIAL PRIMARY KEY,
   "p_submodule_id" int,
   "question" text,
+  "answer" int
   "img_ref" varchar
 );
 
@@ -95,6 +102,12 @@ CREATE TABLE "quiz_options" (
   "quiz_id" int,
   "content" text,
   "order" int
+);
+
+CREATE TABLE "quiz_score" (
+  "id" SERIAL PRIMARY KEY,
+  "module_prog_id" int,
+  "score" float
 );
 
 CREATE TABLE "tags" (
@@ -108,16 +121,23 @@ CREATE TABLE "lkp_tag" (
   "name" varchar
 );
 
+-- -----------------------
+-- Foreign Key Declaration
+-- -----------------------
 
-ALTER TABLE "assigned_modules" ADD FOREIGN KEY ("module_id") REFERENCES "module" ("id");
+-- ALTER TABLE "assigned_modules" ADD FOREIGN KEY ("module_id") REFERENCES "module" ("id");
 
-ALTER TABLE "assigned_modules" ADD FOREIGN KEY ("classroom_id") REFERENCES "classroom" ("id");
+-- ALTER TABLE "assigned_modules" ADD FOREIGN KEY ("classroom_id") REFERENCES "classroom" ("id");
 
-ALTER TABLE "students" ADD FOREIGN KEY ("classroom_id") REFERENCES "classroom" ("id");
+-- ALTER TABLE "students" ADD FOREIGN KEY ("classroom_id") REFERENCES "classroom" ("id");
 
-ALTER TABLE "students" ADD FOREIGN KEY ("student_id") REFERENCES "users" ("id");
+-- ALTER TABLE "students" ADD FOREIGN KEY ("student_id") REFERENCES "users" ("id");
 
-ALTER TABLE "classroom" ADD FOREIGN KEY ("teacher_id") REFERENCES "users" ("id");
+-- ALTER TABLE "classroom" ADD FOREIGN KEY ("teacher_id") REFERENCES "users" ("id");
+
+ALTER TABLE "quiz_score" ADD FOREIGN KEY ("module_prog_id") REFERENCES "module_progress" ("id");
+
+ALTER TABLE "quiz" ADD FOREIGN KEY ("answer") REFERENCES "quiz_options" ("id");
 
 ALTER TABLE "quiz" ADD FOREIGN KEY ("p_submodule_id") REFERENCES "submodule" ("id");
 
@@ -127,7 +147,7 @@ ALTER TABLE "module_progress" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("i
 
 ALTER TABLE "module_progress" ADD FOREIGN KEY ("module_id") REFERENCES "module" ("id");
 
-ALTER TABLE "users" ADD FOREIGN KEY ("user_type") REFERENCES "lkp_user_type" ("id");
+-- ALTER TABLE "users" ADD FOREIGN KEY ("user_type") REFERENCES "lkp_user_type" ("id");
 
 ALTER TABLE "tags" ADD FOREIGN KEY ("tag_id") REFERENCES "lkp_tag" ("id");
 

@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 const routes: Routes = [
+  // navbar page routes.
   { path: 'modules', component: ModulesComponent },
   { path: 'terms', component: TermsComponent },
   { path: 'dashboard', component: DashboardComponent }

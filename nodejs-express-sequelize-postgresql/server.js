@@ -22,7 +22,7 @@ const db = require("./app/models");
 db.sequelize.sync();
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." });
+  res.json({ message: "Finteach express server." });
 });
 
 require("./app/routes/tutorial.routes")(app);

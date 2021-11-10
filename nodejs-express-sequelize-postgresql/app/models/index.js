@@ -30,4 +30,8 @@ db.module = require("./tutorial.model.js")(sequelize, Sequelize);
 db.submodule = require("./submodule.model.js")(sequelize, Sequelize);
 db.moduleprogress = require("./moduleprogress.model.js")(sequelize, Sequelize);
 db.contentfield = require("./contentfield.model.js")(sequelize, Sequelize);
+db.quiz = require("./quiz.model.js")(sequelize, Sequelize);
+db.quizoptions = require("./quizoptions.model.js")(sequelize, Sequelize);
+
+
 module.exports = db;

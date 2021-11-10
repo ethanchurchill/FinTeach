@@ -29,6 +29,10 @@ require("./app/routes/tutorial.routes")(app);
 require("./app/routes/submodule.routes")(app);
 require("./app/routes/moduleprogress.routes")(app);
 require("./app/routes/contentfield.routes")(app);
+require("./app/routes/quiz.routes")(app);
+require("./app/routes/quizoptions.routes")(app);
+
+
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;

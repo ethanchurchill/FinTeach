@@ -1,0 +1,61 @@
+<div *ngIf = "showBase">
+    <ng-template #content let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">
+                Module Overview
+            </h4>
+            <button 
+                type="button" 
+                class="close" 
+                aria-label="Close" 
+                (click)="modal.dismiss('Cross click')"
+            >
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <a>{{description}}</a>
+        </div>
+        <div class="modal-footer">
+            <button 
+                type="button" 
+                class="btn btn-outline-dark" 
+                (click)="modal.close('Save click'); this.showBase=false"
+            >
+                Open
+            </button>
+        </div>
+    </ng-template>
+    
+    <button 
+        class="btn btn-lg btn-success"
+        (click)="open(content)"
+    >
+        <img src={{img_ref}} alt="image">
+    </button>
+</div>
+
+<div *ngIf = "!showBase">
+    <h1>{{name}}</h1>
+
+    <h2>Submodule 1</h2> 
+    <body>{{name}} 1</body>
+    Test example
+    <body>
+        <p>Lorem ipsum</p>
+    </body>
+
+    <h2>Submodule 2</h2>
+    <body>{{name}} 2</body>  
+    Test example
+    <body>
+        <p>Lorem ipsum</p>
+    </body>
+
+    <h2>Submodule 3</h2>
+    <body>{{name}} 3</body>
+    Test example
+    <body>
+        <p>Lorem ipsum</p>
+    </body>
+</div>

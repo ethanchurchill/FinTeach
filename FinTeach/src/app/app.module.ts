@@ -6,8 +6,10 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ModulesComponent } from './modules/modules.component';
 import { TermsComponent } from './terms/terms.component';
+import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,13 +17,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NavBar,
     DashboardComponent,
     ModulesComponent,
-    TermsComponent
+    TermsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

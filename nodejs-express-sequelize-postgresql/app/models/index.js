@@ -27,6 +27,7 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 db.module = require("./tutorial.model.js")(sequelize, Sequelize);
+db.users = require("./users.model.js")(sequelize, Sequelize);
 db.submodule = require("./submodule.model.js")(sequelize, Sequelize);
 db.moduleprogress = require("./moduleprogress.model.js")(sequelize, Sequelize);
 db.contentfield = require("./contentfield.model.js")(sequelize, Sequelize);

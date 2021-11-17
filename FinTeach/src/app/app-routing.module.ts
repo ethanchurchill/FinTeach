@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'modules', component: ModulesComponent },
   { path: 'terms', component: TermsComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'submodule', component: SubmoduleComponent }
+  { path: 'submodule/:module_id', component: SubmoduleComponent }
 ];
 
 @NgModule({

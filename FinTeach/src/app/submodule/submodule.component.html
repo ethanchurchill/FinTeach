@@ -3,4 +3,29 @@
     <h1>{{ submodules[current_submodule].title }}</h1>
     <p>{{ submodules[current_submodule].description }}</p>
   </div>
+  <div class="row">
+    <div *ngIf="submodules[current_submodule].type == 'c'">
+      <ul>
+         <li *ngFor="let contentfield of current_content_field;">
+            <h2>{{ contentfield.subtitle }}</h2>
+            <p>{{ contentfield.material }}</p>
+         </li>
+      </ul>
+    </div>
+    <div *ngIf="submodules[current_submodule].type == 'q'">
+      <ul>
+         <li *ngFor="let quiz of current_quiz;">
+            <p>{{ quiz.question }}</p>
+         </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <button (click)="moveSubmodule(-1)" [disabled]="noPrevious" type="button" class="btn btn-primary">Previous</button>
+    </div>
+    <div class="col">
+      <button (click)="moveSubmodule(1)" [disabled]="noNext" type="button" class="btn btn-primary">Next</button>
+    </div>
+  </div>
 </div>

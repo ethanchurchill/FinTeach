@@ -18,7 +18,7 @@ export class ContentFieldService {
   }
 
   // API request to database to get content field based on parent submodule id.
-  getFromContentFieldId(id:any): Observable<ContentField[]> {
+  getFromSubmoduleId(id:any): Observable<ContentField[]> {
     return this.http.get<ContentField[]>(baseUrl+"/from_submodule_id/"+id);
   }
 

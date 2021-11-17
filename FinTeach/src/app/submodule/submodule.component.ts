@@ -18,8 +18,9 @@ export class SubmoduleComponent implements OnInit {
   // @Input()
   //   sumodule_number: number;
   current_submodule?: any;
+  submodules?: any;
   current_quiz?: any;
-  current_quiz_options?: QuizOptions[];
+  current_quiz_options?: any;
   current_content_field?: any;
 
   constructor(private submoduleService: SubmoduleService,
@@ -29,21 +30,18 @@ export class SubmoduleComponent implements OnInit {
               private moduleprogressService: ModuleProgressService) { }
 
   ngOnInit(): void {
+    this.current_submodule = 0;
     this.loadSubmodule(1);
   }
 
   loadSubmodule(module_id: any): void {
-    this.submoduleService.getAll() //add function to get submodule based on module
+    this.submoduleService.getFromModuleId(module_id) //add function to get submodule based on module
       .subscribe(
         data => {
-          // loop to find submodule belonging too module
-          data.forEach(submodule => {
-              if (submodule.p_module_id == module_id) {
-                this.current_submodule = submodule;
-                this.loadContent(submodule.id, submodule.type);
-              }
-          });
-          console.log(data);
+          this.submodules = data;
+          var submodule_id = this.submodules[this.current_submodule].id
+          var content_type = this.submodules[this.current_submodule].type
+          this.loadContent(submodule_id, content_type);
         },
         error => {
           console.log(error);
@@ -51,17 +49,14 @@ export class SubmoduleComponent implements OnInit {
   }
 
   loadContent(submodule_id: any, content_type: any): void {
+    console.log(submodule_id, content_type);
     if (content_type == 'c') {
 
     } else {
       this.quizService.getAll() //add function to get quiz based on submodule
         .subscribe(
           data => {
-            data.forEach(quiz => {
-                if (quiz.p_submodule_id == submodule_id) {
-                  this.current_quiz = quiz;
-                }
-            });
+            this.current_quiz = data;
             console.log(data);
           },
           error => {
@@ -71,11 +66,13 @@ export class SubmoduleComponent implements OnInit {
       this.quizoptionsService.getAll() //add function to get quiz options based on quiz
         .subscribe(
           data => {
-            data.forEach(quiz_option => {
-                if (quiz_option.quiz_id == this.current_quiz.id) {
-                  this.current_quiz_options.push(quiz_option);
-                }
-              });
+            this.current_quiz_options = data;
+            // data.forEach(quiz_option => {
+            //     if (quiz_option.quiz_id == this.current_quiz.id) {
+            //       this.current_quiz_options = quiz_option;
+            //     }
+            //   });
+            console.log(data);
           },
           error => {
             console.log(error);

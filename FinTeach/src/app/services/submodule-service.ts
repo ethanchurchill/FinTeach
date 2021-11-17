@@ -16,5 +16,9 @@ export class SubmoduleService {
     return this.http.get<Submodule[]>(baseUrl);
   }
 
-  
+  getFromModuleId(id:any): Observable<Submodule[]> {
+    return this.http.get<Submodule[]>(baseUrl+"/from_module_id/"+id);
+  }
+
+
 }

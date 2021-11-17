@@ -12,9 +12,14 @@ export class QuizService {
 
   constructor(private http: HttpClient) { }
 
+  // API request to database to get all quizes.
   getAll(): Observable<Quiz[]> {
     return this.http.get<Quiz[]>(baseUrl);
   }
 
+  // API request to database to get quizs based on parent submodule id.
+  getFromSubmoduleId(id:any): Observable<Quiz[]> {
+    return this.http.get<Quiz[]>(baseUrl+"/from_submodule_id/"+id);
+  }
 
 }

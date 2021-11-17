@@ -12,9 +12,14 @@ export class QuizOptionsService {
 
   constructor(private http: HttpClient) { }
 
+  // API request to database to get all quiz options.
   getAll(): Observable<QuizOptions[]> {
     return this.http.get<QuizOptions[]>(baseUrl);
   }
 
+  // API request to database to get quizoptions based on parent quiz id.
+  getFromQuizId(id:any): Observable<QuizOptions[]> {
+    return this.http.get<QuizOptions[]>(baseUrl+"/from_quiz_id/"+id);
+  }
 
 }

@@ -36,6 +36,7 @@ export class SubmoduleComponent implements OnInit {
               private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    // gets module_id from URL.
     var module_id = this.route.snapshot.paramMap.get("module_id");
 
     this.current_submodule = 0;

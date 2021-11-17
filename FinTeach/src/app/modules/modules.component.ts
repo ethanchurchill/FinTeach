@@ -9,17 +9,14 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./modules.component.css']
 })
 export class ModulesComponent implements OnInit {
-  showBase = true;
   closeResult = '';
   modules?: Module[];
-  showModule: any;
   constructor(private moduleService: ModuleService, private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.retrieveModules();
   }
   open(content: any) {
-    // this.showBase = false;
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
@@ -45,9 +42,6 @@ export class ModulesComponent implements OnInit {
         error => {
           console.log(error);
         });
-  }
-  onClick(): void {
-    this.showModule = true;
   }
 
 }

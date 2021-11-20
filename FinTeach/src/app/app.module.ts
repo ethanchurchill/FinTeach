@@ -10,6 +10,7 @@ import { ModulesComponent } from './modules/modules.component';
 import { TermsComponent } from './terms/terms.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SubmoduleComponent } from './submodule/submodule.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ModuleGallery,
     DashboardComponent,
     ModulesComponent,
-    TermsComponent
+    TermsComponent,
+    SubmoduleComponent
   ],
   imports: [
     BrowserModule,

@@ -25,7 +25,7 @@ app.get("/", (req, res) => {
   res.json({ message: "Finteach express server." });
 });
 
-require("./app/routes/tutorial.routes")(app);
+require("./app/routes/module.routes")(app);
 require("./app/routes/submodule.routes")(app);
 require("./app/routes/moduleprogress.routes")(app);
 require("./app/routes/contentfield.routes")(app);

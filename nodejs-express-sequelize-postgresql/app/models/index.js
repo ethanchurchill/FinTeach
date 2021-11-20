@@ -26,6 +26,8 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
+
+db.users = require("./users.model.js")(sequelize, Sequelize);
 db.module = require("./module.model.js")(sequelize, Sequelize);
 db.submodule = require("./submodule.model.js")(sequelize, Sequelize);
 db.moduleprogress = require("./moduleprogress.model.js")(sequelize, Sequelize);

@@ -8,8 +8,10 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ModulesComponent } from './modules/modules.component';
 import { TermsComponent } from './terms/terms.component';
+import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 import { SubmoduleComponent } from './submodule/submodule.component';
 
 @NgModule({
@@ -21,13 +23,15 @@ import { SubmoduleComponent } from './submodule/submodule.component';
     DashboardComponent,
     ModulesComponent,
     TermsComponent,
+    LoginComponent,
     SubmoduleComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

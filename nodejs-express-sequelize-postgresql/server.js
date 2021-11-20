@@ -31,6 +31,7 @@ require("./app/routes/moduleprogress.routes")(app);
 require("./app/routes/contentfield.routes")(app);
 require("./app/routes/quiz.routes")(app);
 require("./app/routes/quizoptions.routes")(app);
+require("./app/routes/users.routes")(app);
 
 
 

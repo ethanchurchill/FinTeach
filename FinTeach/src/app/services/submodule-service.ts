@@ -12,9 +12,15 @@ export class SubmoduleService {
 
   constructor(private http: HttpClient) { }
 
+  // API request to database to get all submodules.
   getAll(): Observable<Submodule[]> {
     return this.http.get<Submodule[]>(baseUrl);
   }
 
-  
+  // API request to database to get submodules based on parent module id.
+  getFromModuleId(id:any): Observable<Submodule[]> {
+    return this.http.get<Submodule[]>(baseUrl+"/from_module_id/"+id);
+  }
+
+
 }

@@ -12,6 +12,10 @@ Before running the application, make sure [postgres](https://www.postgresql.org/
 
 Run `ng serve` in the the FinTeach/FinTeach directory for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
+## Express Server
+
+Run `node server.js` in the the FinTeach/nodejs-express-sequelize-postgresql directory for the Express server. Navigate to `http://localhost:8080/`. This will display some text that indicates that the express server is up and running
+
 ## Project Structure
 
 The FinTeach/FinTeach directory contains the components for the frontend of the application while the nodejs-express-sequelize-postgresql directory contains the backend.

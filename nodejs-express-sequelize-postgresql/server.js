@@ -1,3 +1,5 @@
+//Configuration constants required by express
+//Sets the appropriate CORS config
 const express = require("express");
 const cors = require("cors");
 
@@ -25,6 +27,7 @@ app.get("/", (req, res) => {
   res.json({ message: "Finteach express server." });
 });
 
+//Define routes for the specific API endpoints used by the frontend
 require("./app/routes/module.routes")(app);
 require("./app/routes/submodule.routes")(app);
 require("./app/routes/moduleprogress.routes")(app);

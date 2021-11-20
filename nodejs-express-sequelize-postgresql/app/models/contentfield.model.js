@@ -1,3 +1,6 @@
+//Defines the table columns present in the content field table
+//This is used by Express to get a JSON object with the correct attributes
+
 module.exports = (sequelize, Sequelize) => {
     const Contentfield = sequelize.define("content_field", {
       

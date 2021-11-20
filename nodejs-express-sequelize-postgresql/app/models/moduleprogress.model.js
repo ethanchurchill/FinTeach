@@ -1,3 +1,7 @@
+
+//Defines the table structure present in the module progress table
+//This is used by Express to get a JSON object with the correct attributes
+
 module.exports = (sequelize, Sequelize) => {
     const Moduleprogress = sequelize.define("module_progress", {
       

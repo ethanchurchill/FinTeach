@@ -1,3 +1,8 @@
+//This file defines all the configurations for the database
+//For each user the USER, PASSWORD and DB will need to be changed 
+//This depends on the postgres configuration for the user
+//The other fields will remain the same
+
 module.exports = {
     HOST: "localhost",
     USER: "rishinair",

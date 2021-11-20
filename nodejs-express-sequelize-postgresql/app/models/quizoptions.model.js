@@ -1,3 +1,6 @@
+
+//Defines the table structure present in the quiz options table
+//This is used by Express to get a JSON object with the correct attributes
 module.exports = (sequelize, Sequelize) => {
     const QuizOptions = sequelize.define("quiz_options", {
 

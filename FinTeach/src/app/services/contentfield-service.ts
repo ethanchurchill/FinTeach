@@ -1,8 +1,11 @@
+//This class defines the HTTP service for the Content Field table in the DB
+//Various queries are defined as well as API endpoints
+//These are used by components in the src/app folder
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ContentField } from '../models/contentfield-model';
-
+//Base URL for content field
 const baseUrl = 'http://localhost:8080/api/contentfield';
 
 @Injectable({

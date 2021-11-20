@@ -1,3 +1,6 @@
+//Class defining the Submodule Component
+//This encompasses the submodule pages on each module
+//There is data retrieval as well as frontend modifications
 import { Component, OnInit, Input } from '@angular/core';
 import { SubmoduleService } from 'src/app/services/submodule-service';
 import { QuizService } from 'src/app/services/quiz-service';
@@ -34,7 +37,7 @@ export class SubmoduleComponent implements OnInit {
               private contentfieldService: ContentFieldService,
               private moduleprogressService: ModuleProgressService,
               private route: ActivatedRoute) { }
-
+  //Runs on component intiliaztion
   ngOnInit(): void {
     // gets module_id from URL.
     var module_id = this.route.snapshot.paramMap.get("module_id");
@@ -42,7 +45,8 @@ export class SubmoduleComponent implements OnInit {
     this.current_submodule = 0;
     this.loadSubmodule(module_id);
   }
-
+   //Loads a submodule given a  module id
+   //Places it in a variable
   loadSubmodule(module_id: any): void {
     this.submoduleService.getFromModuleId(module_id) //get module's submodules
       .subscribe(
@@ -57,7 +61,8 @@ export class SubmoduleComponent implements OnInit {
           console.log(error);
         });
   }
-
+  //Loads content given a submodule id and content type
+  //Populates variables for use in the HTML
   loadContent(submodule_id: any, content_type: any): void {
 
     if (content_type == 'c') {
@@ -91,7 +96,8 @@ export class SubmoduleComponent implements OnInit {
       // });
     }
   }
-
+  //Moves forward or backward in submodule progress
+  //Changes variables that are utilized by the HTML to determine which progress
   moveSubmodule(moveDirection: any) {
 
     if (moveDirection == -1) { // move back a submodule.

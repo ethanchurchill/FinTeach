@@ -1,8 +1,12 @@
+
+//This class defines the HTTP service for the Submodule table in the DB
+//Various queries are defined as well as API endpoints
+//These are used by components in the src/app folder
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Submodule } from '../models/submodule-model';
-
+//Base URL endpoint for the submodule retrieval
 const baseUrl = 'http://localhost:8080/api/submodule';
 
 @Injectable({

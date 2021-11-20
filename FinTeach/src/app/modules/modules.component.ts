@@ -1,3 +1,6 @@
+//Class defining the Modules Component
+//This class creates the page with the total list of modules
+//The module information is retrieved from the DB
 import { Component, OnInit } from '@angular/core';
 import { Module } from 'src/app/models/module-model';
 import { ModuleService } from 'src/app/services/module-service';
@@ -17,6 +20,8 @@ export class ModulesComponent implements OnInit {
     this.initializeDummyModules();
     this.retrieveModules();
   }
+  //Populates the module with dummy data
+  //This will be replaced by DB calls
   initializeDummyModules(): void {
     const dummy1 = new Module();
     dummy1.name = "Stocks";
@@ -33,6 +38,8 @@ export class ModulesComponent implements OnInit {
 
     this.dummyModules = [dummy1, dummy2, dummy3]
   }
+  //First look at retrieving modules from the DB
+  //This will need some work
   retrieveModules(): void {
     this.moduleService.getAll()
       .subscribe(

@@ -1,3 +1,6 @@
+//Class defining the Dashboard Component
+//This class retrieves module data for the user from the DB
+//It then populates the module galleries with the right modules
 import { Component, OnInit } from '@angular/core';
 import { ContentField } from 'src/app/models/contentfield-model';
 import { ContentFieldService } from 'src/app/services/contentfield-service';
@@ -13,7 +16,7 @@ import { Module } from 'src/app/models/module-model';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
+  //Hardcoded module list using dummy data
   dummyModules1?: Module[]; //Dummy data for now
   dummyModules2?: Module[];
   dummyModules3?: Module[];
@@ -21,14 +24,18 @@ export class DashboardComponent implements OnInit {
   contents?: ContentField[];
   submodules?: Submodule[];
   progressList?: ModuleProgress[];
+  //Initializes the backend retrieval services in the constructor
   constructor(private contentFieldService: ContentFieldService,
     private moduleProgressService: ModuleProgressService,
     private submoduleService: SubmoduleService) { }
-
+  //Runs on page initiliazation
   ngOnInit(): void {
+    //Initializes the modules and gets content from the DB
     this.initializeDummyModules();
     this.retrieveContents();
   }
+  //Populate dummy data into the module
+  //This will be replaced with database calls
   initializeDummyModules(): void {
     const dummy1 = new Module();
     dummy1.name = "Stocks"
@@ -47,6 +54,8 @@ export class DashboardComponent implements OnInit {
     this.dummyModules2 = [dummy2, dummy3, dummy1]
     this.dummyModules3 = [dummy3, dummy1, dummy2]
   }
+  //First step at retrieving contents from the database
+  //This part needs some work
   retrieveContents(): void {
     this.contentFieldService.getAll()
       .subscribe(

@@ -1,3 +1,5 @@
+//Class defining the Terms Component
+//This is the glossary page containing important terms in the app
 import { Component, OnInit } from '@angular/core';
 
 @Component({

@@ -25,7 +25,10 @@ export class AuthService {
   }
   //API endpoint to create a new user with the info in  the body of the request
   create(data: any): Observable<any> {
+      console.log("got here");
+      
     return this.http.post(baseUrl, data);
+    
   }
 
 }

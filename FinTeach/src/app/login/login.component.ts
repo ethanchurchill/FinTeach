@@ -16,32 +16,77 @@ export class LoginComponent implements OnInit {
     email: null,
     password: null
   };
+  username = '';
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
+  displayInfo: boolean = false;
 
   constructor(private authService: AuthService) { }
   //Runs on page initialization
   ngOnInit(): void {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+    const username = currentUser.username;
+    console.log(currentUser);
+    if(username != 'username') {
+      this.isSuccessful = true;
+        this.isSignUpFailed = false;
+        this.displayInfo = true;
+    }
+    else {
+      this.isSuccessful = false;
+      this.isSignUpFailed = false;
+    }
+    if(this.displayInfo == true) {
+      this.username = currentUser.username;
+      // this.email = currentUser.email;
+       
+    }
+  }
+  logout(): void {
+    const cleared = {
+      username: 'username',
+      password: 'password',
+      email: 'email'
+    };
+    localStorage.setItem('currentUser', JSON.stringify(cleared));
+    this.isSuccessful = false;
+    this.isSignUpFailed = false;
+    this.displayInfo = false; 
   }
   //Method that is called when the form is submitted
   onSubmit(): void {
     //Extracts info from the form and assigns it to user variable
+  
     const { username, email, password } = this.form;
     const user: Users = new Users();
     user.username = username;
     user.password = password;
     user.email = email;
+    const dataNew = {
+      username: username,
+      password: password,
+      email: email
+    };
+    if(dataNew.username == null || dataNew.password == null || dataNew.email == null) {
+        return;
+    }
 
     //Creates a user using the form info with the Auth Service
-    this.authService.create(user).subscribe(
+    this.authService.create(dataNew).subscribe(
       data => {
         console.log(data);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
+        localStorage.setItem('currentUser', JSON.stringify(data));
+        const currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+        this.displayInfo = true;
+        console.log(currentUser);
       },
       err => {
         this.errorMessage = err.error.message;
+        console.log(this.errorMessage);
+        console.log(dataNew.email);
         this.isSignUpFailed = true;
       }
     );

@@ -50,9 +50,9 @@ export class DashboardComponent implements OnInit {
     dummy3.description = "This module covers credit. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
     dummy3.img_ref = "/assets/credit-folder.png"
 
-    this.dummyModules1 = [dummy1, dummy2, dummy3]
-    this.dummyModules2 = [dummy2, dummy3, dummy1]
-    this.dummyModules3 = [dummy3, dummy1, dummy2]
+    this.dummyModules1 = [dummy1]
+    this.dummyModules2 = [dummy2, dummy3]
+    this.dummyModules3 = [dummy1]
   }
   //First step at retrieving contents from the database
   //This part needs some work

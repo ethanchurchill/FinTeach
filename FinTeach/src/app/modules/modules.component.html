@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Modules</h1>
   <div *ngFor="let module of this.dummyModules">
-    <moduleblock [name]="module.name" [description]="module.description" [img_ref]="module.img_ref"></moduleblock>
+    <moduleblock [module_id]="module.id" [name]="module.name" [description]="module.description" [img_ref]="module.img_ref"></moduleblock>
     <hr>
   </div>
 </div>

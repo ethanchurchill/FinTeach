@@ -49,6 +49,7 @@ export class DashboardComponent implements OnInit {
                 } else {
                   if (this.progressList) {this.progressList.push(data[0]);}
                 }
+                console.log(this.completeList, this.progressList);
               },
               error => {
                 console.log(error);

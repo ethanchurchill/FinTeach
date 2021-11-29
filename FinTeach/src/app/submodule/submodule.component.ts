@@ -57,7 +57,7 @@ export class SubmoduleComponent implements OnInit {
   }
 
   checkModuleProgress(module_id: any, user_id: any): void {
-    this.moduleprogressService.getFromId(module_id, user_id)
+    this.moduleprogressService.getFromId(user_id, module_id)
       .subscribe(
         data => {
           if (data.length != 0) {

@@ -24,8 +24,9 @@ export class ModulesComponent implements OnInit {
   //This will be replaced by DB calls
   initializeDummyModules(): void {
     const dummy1 = new Module();
+    dummy1.id = 1;
     dummy1.name = "Stocks";
-    dummy1.description = "This module covers stocks. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum";
+    dummy1.description = "A stock (also known as equity) is a security that represents the ownership of a fraction of a corporation. This entitles the owner of the stock to a proportion of the corporation's assets and profits equal to how much stock they own. Units of stock are called 'shares.'";
     dummy1.img_ref = "/assets/stocks-folder.png"
     const dummy2 = new Module();
     dummy2.name = "Budgeting";

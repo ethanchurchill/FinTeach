@@ -19,5 +19,15 @@ export class ModuleProgressService {
     return this.http.get<ModuleProgress[]>(baseUrl);
   }
 
-  
+  getFromId(module_id:any, user_id:any): Observable<ModuleProgress[]> {
+    return this.http.get<ModuleProgress[]>(baseUrl+"/from_id/"+module_id+"/"+user_id);
+  }
+
+  create(data: any): Observable<any> {
+    return this.http.post(baseUrl, data);
+  }
+
+  update(data: any):  Observable<any> {
+    return this.http.post(baseUrl+"/update", data);
+  }
 }

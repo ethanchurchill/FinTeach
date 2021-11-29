@@ -57,9 +57,11 @@ export class SubmoduleComponent implements OnInit {
   }
 
   checkModuleProgress(module_id: any, user_id: any): void {
-    this.moduleprogressService.getFromId(module_id, user_id)
+    this.moduleprogressService.getFromId(user_id, module_id)
       .subscribe(
         data => {
+          console.log(module_id, user_id);
+          console.log(data, data.length);
           if (data.length != 0) {
             this.module_progress = data[0];
             this.current_submodule = this.module_progress.current_submodule - 1;
@@ -73,7 +75,7 @@ export class SubmoduleComponent implements OnInit {
             if(dataNew.module_id == null || dataNew.user_id == null) {
                 return;
             }
-
+            console.log("Here");
             //Creates a user using the form info with the Auth Service
             this.moduleprogressService.create(dataNew).subscribe(
               data => {

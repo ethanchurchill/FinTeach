@@ -15,6 +15,7 @@ export class ModuleBlock {
     @Input() name?: string;
     @Input() description?: string;
     @Input() img_ref?: string;
+    @Input() module_id?: Number;
 
     constructor(private modalService: NgbModal) { }
 

@@ -19,5 +19,7 @@ export class ModuleService {
     return this.http.get<Module[]>(baseUrl);
   }
 
-  
+  getFromId(module_id:any): Observable<Module[]> {
+    return this.http.get<Module[]>(baseUrl+"/find_id/"+module_id);
+  }
 }

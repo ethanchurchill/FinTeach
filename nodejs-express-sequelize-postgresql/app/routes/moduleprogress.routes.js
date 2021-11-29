@@ -8,6 +8,8 @@ module.exports = app => {
     //API Endpoint to retrieve all module progress entries
     router.get("/", moduleprogress.findAll);
     router.get("/from_id/:user_id/:module_id", moduleprogress.findWithId);
+    router.get("/from_userid/:user_id/", moduleprogress.findWithUserId);
+
 
     // API endpoints to create and update module progress entries
     router.post("/", moduleprogress.create);

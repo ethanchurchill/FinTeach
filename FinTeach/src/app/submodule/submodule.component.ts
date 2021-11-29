@@ -9,6 +9,7 @@ import { ContentFieldService } from 'src/app/services/contentfield-service';
 import { ModuleProgressService } from 'src/app/services/moduleprogress-service';
 import { QuizOptions } from 'src/app/models/quizoptions-model';
 import { Quiz } from 'src/app/models/quiz-model';
+import { ModuleProgress } from 'src/app/models/moduleprogress-model';
 import {ActivatedRoute} from '@angular/router';
 
 
@@ -26,10 +27,12 @@ export class SubmoduleComponent implements OnInit {
   current_quiz?: any;
   current_quiz_options?: any[];
   current_content_field?: any;
+  module_progress?: any;
 
   // Button variables
   noPrevious?: any;
-  noNext?: any;
+  showDone?: any;
+
 
   constructor(private submoduleService: SubmoduleService,
               private quizService: QuizService,
@@ -40,10 +43,53 @@ export class SubmoduleComponent implements OnInit {
   //Runs on component intiliaztion
   ngOnInit(): void {
     // gets module_id from URL.
+    const user_id = JSON.parse(localStorage.getItem('currentUser') || '{}').id;
     var module_id = this.route.snapshot.paramMap.get("module_id");
 
-    this.current_submodule = 0;
-    this.loadSubmodule(module_id);
+    // If user is logged in check for module progress. Otherwise, Set to start at the beginning of the module.
+    if (user_id) {
+      this.current_submodule = 0;
+      this.checkModuleProgress(module_id, user_id);
+    } else {
+      this.current_submodule = 0;
+      this.loadSubmodule(module_id);
+    }
+  }
+
+  checkModuleProgress(module_id: any, user_id: any): void {
+    this.moduleprogressService.getFromId(module_id, user_id)
+      .subscribe(
+        data => {
+          if (data.length != 0) {
+            this.module_progress = data[0];
+            this.current_submodule = this.module_progress.current_submodule - 1;
+            this.loadSubmodule(module_id);
+          } else {
+            const dataNew = {
+              module_id: module_id,
+              user_id: user_id
+            };
+
+            if(dataNew.module_id == null || dataNew.user_id == null) {
+                return;
+            }
+
+            //Creates a user using the form info with the Auth Service
+            this.moduleprogressService.create(dataNew).subscribe(
+              data => {
+                this.module_progress = data;
+                this.current_submodule =  this.module_progress.current_submodule - 1;
+                this.loadSubmodule(module_id);
+              },
+              err => {
+                console.log(err.error.message);
+              }
+            );
+          }
+        },
+        error => {
+          console.log(error);
+        });
   }
    //Loads a submodule given a  module id
    //Places it in a variable
@@ -96,35 +142,50 @@ export class SubmoduleComponent implements OnInit {
       // });
     }
   }
+
   //Moves forward or backward in submodule progress
   //Changes variables that are utilized by the HTML to determine which progress
   moveSubmodule(moveDirection: any) {
 
     if (moveDirection == -1) { // move back a submodule.
       this.current_submodule -= 1;
-
-      var submodule_id = this.submodules[this.current_submodule].id
-      var type = this.submodules[this.current_submodule].type
-      this.loadContent(submodule_id, type);
-      this.noNext = false;
     } else if (moveDirection == 1) { // move forward a submodule.
-
       this.current_submodule += 1;
-
-      var submodule_id = this.submodules[this.current_submodule].id
-      var type = this.submodules[this.current_submodule].type
-      this.loadContent(submodule_id, type);
       this.noPrevious = false;
+      this.progressContinue(this.module_progress.id, this.current_submodule + 1, false);
     }
+
+    var submodule_id = this.submodules[this.current_submodule].id
+    var type = this.submodules[this.current_submodule].type
+    this.loadContent(submodule_id, type);
 
     // disable previous button if at the start of the module.
     if (this.current_submodule == 0) {
       this.noPrevious = true;
     }
 
+    this.showDone = false;
     // disable next button if at the end of  the module.
     if (this.current_submodule == this.submodules.length-1) {
-      this.noNext = true;
+      this.showDone = true;
+    }
+  }
+
+  // Function that updates the moduleprogress object for a user as the user gets to unseen submodules.
+  progressContinue(module_progress_id:any, current_submodule:any, module_completed:any) {
+    if (this.module_progress.current_submodule - 1 < this.current_submodule) {
+      const updateData = {id: module_progress_id,
+                          current_submodule: current_submodule,
+                          module_completed: module_completed }
+
+      this.moduleprogressService.update(updateData)
+        .subscribe(
+          data => {
+              console.log(data);
+          },
+          error => {
+            console.log(error);
+          });
     }
   }
 }

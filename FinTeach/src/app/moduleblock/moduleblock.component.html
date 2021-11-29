@@ -17,7 +17,7 @@
             <a>{{description}}</a>
         </div>
         <div class="modal-footer">
-          <button type="button" [routerLink]="['/submodule', 1]" class="btn btn-outline-dark" (click)="modal.close('Save click');">Open</button>
+          <button type="button" [routerLink]="['/submodule', this.module_id]" class="btn btn-outline-dark" (click)="modal.close('Save click');">Open</button>
         </div>
     </ng-template>
 

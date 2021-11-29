@@ -14,7 +14,7 @@ exports.findAll = (req, res) => {
   const title = req.query.title;
   var condition = title ? { title: { [Op.iLike]: `%${title}%` } } : null;
 
-  Module.findAll({ where: condition })  //Retrieves all modules from postgres 
+  Module.findAll({ where: condition })  //Retrieves all modules from postgres
     .then(data => {
       res.send(data);
     })
@@ -26,3 +26,23 @@ exports.findAll = (req, res) => {
     });
 };
 
+// Retrieve module progress with spesific user id.
+exports.findWithId = (req, res) => {
+  const module_id = req.params.module_id;
+
+  Module.findAll({ where: { id: module_id } })
+    .then(data => {
+      if (data) {
+        res.send(data);
+      } else {
+        res.status(404).send({
+          message: "Cannot find Moduleprogress with module_id=${module_id} and user_id=${user_id}."
+        });
+      }
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Error retrieving Moduleprogress with module_id=" + req.params.module_id + " and user_id=" +  req.params.user_id
+      });
+    });
+};

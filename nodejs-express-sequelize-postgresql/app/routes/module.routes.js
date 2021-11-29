@@ -7,7 +7,7 @@ module.exports = app => {
 
     //API endpoint to retrieve all modules in the database
     router.get("/", module.findAll);
-
+    router.get("/find_id/:module_id", module.findWithId);
 
     app.use('/api/modules', router);
   };

@@ -48,6 +48,27 @@ exports.findWithId = (req, res) => {
     });
 };
 
+// Retrieve module progress with spesific user id.
+exports.findWithUserId = (req, res) => {
+  const user_id = req.params.user_id;
+
+  Moduleprogress.findAll({ where: { user_id: user_id } })
+    .then(data => {
+      if (data) {
+        res.send(data);
+      } else {
+        res.status(404).send({
+          message: "Cannot find Moduleprogress with module_id=${module_id} and user_id=${user_id}."
+        });
+      }
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Error retrieving Moduleprogress with module_id=" + req.params.module_id + " and user_id=" +  req.params.user_id
+      });
+    });
+};
+
 // Creates module progress entry in database table.
 exports.create = (req, res) => {
     // Validate request

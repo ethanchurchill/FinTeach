@@ -173,7 +173,7 @@ export class SubmoduleComponent implements OnInit {
 
   // Function that updates the moduleprogress object for a user as the user gets to unseen submodules.
   progressContinue(module_progress_id:any, current_submodule:any, module_completed:any) {
-    if (this.module_progress.current_submodule - 1 < this.current_submodule) {
+    if (this.module_progress.current_submodule - 1 <= this.current_submodule) {
       const updateData = {id: module_progress_id,
                           current_submodule: current_submodule,
                           module_completed: module_completed }

@@ -24,6 +24,11 @@ export class ModuleProgressService {
     return this.http.get<ModuleProgress[]>(baseUrl+"/from_id/"+module_id+"/"+user_id);
   }
 
+  //Goes to the API Endpoint for retieving moduleprogress based on user id.
+  getFromUserId(user_id:any): Observable<ModuleProgress[]> {
+    return this.http.get<ModuleProgress[]>(baseUrl+"/from_userid/"+user_id);
+  }
+
   //Goes to the API Endpoint to creating a new module progress object.
   create(data: any): Observable<any> {
     return this.http.post(baseUrl, data);

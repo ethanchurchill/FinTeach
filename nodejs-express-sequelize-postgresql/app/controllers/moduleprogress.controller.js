@@ -26,6 +26,7 @@ exports.findAll = (req, res) => {
     });
 };
 
+// Retrieve module progress with spesific module and user id.
 exports.findWithId = (req, res) => {
   const module_id = req.params.module_id;
   const user_id = req.params.user_id;
@@ -47,6 +48,7 @@ exports.findWithId = (req, res) => {
     });
 };
 
+// Creates module progress entry in database table.
 exports.create = (req, res) => {
     // Validate request
     if (!req.body.module_id || !req.body.user_id) {
@@ -77,6 +79,7 @@ exports.create = (req, res) => {
       });
   };
 
+// Updates module progress entry with new data.
 exports.update = (req, res) => {
   const moduleprogress_id = req.body.id;
   const current_submodule = req.body.current_submodule;

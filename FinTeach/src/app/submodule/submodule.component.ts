@@ -142,6 +142,7 @@ export class SubmoduleComponent implements OnInit {
       // });
     }
   }
+
   //Moves forward or backward in submodule progress
   //Changes variables that are utilized by the HTML to determine which progress
   moveSubmodule(moveDirection: any) {
@@ -170,22 +171,7 @@ export class SubmoduleComponent implements OnInit {
     }
   }
 
-  onDone() {
-    const updateData = {id: this.module_progress.id,
-                        current_submodule: this.current_submodule + 1,
-                        module_completed: true }
-
-    this.moduleprogressService.update(updateData)
-      .subscribe(
-        data => {
-            console.log(data);
-            // this.module_progress = data[0];
-        },
-        error => {
-          console.log(error);
-        });
-  }
-
+  // Function that updates the moduleprogress object for a user as the user gets to unseen submodules.
   progressContinue(module_progress_id:any, current_submodule:any, module_completed:any) {
     if (this.module_progress.current_submodule - 1 < this.current_submodule) {
       const updateData = {id: module_progress_id,
@@ -196,7 +182,6 @@ export class SubmoduleComponent implements OnInit {
         .subscribe(
           data => {
               console.log(data);
-              // this.module_progress = data[0];
           },
           error => {
             console.log(error);

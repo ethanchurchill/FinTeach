@@ -19,14 +19,17 @@ export class ModuleProgressService {
     return this.http.get<ModuleProgress[]>(baseUrl);
   }
 
+  //Goes to the API Endpoint for retieving moduleprogress based on user and module id.
   getFromId(module_id:any, user_id:any): Observable<ModuleProgress[]> {
     return this.http.get<ModuleProgress[]>(baseUrl+"/from_id/"+module_id+"/"+user_id);
   }
 
+  //Goes to the API Endpoint to creating a new module progress object.
   create(data: any): Observable<any> {
     return this.http.post(baseUrl, data);
   }
 
+  //Goes to the API endpoint to update an existing module progress object.
   update(data: any):  Observable<any> {
     return this.http.post(baseUrl+"/update", data);
   }

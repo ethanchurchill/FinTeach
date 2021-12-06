@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { SubmoduleComponent } from './submodule/submodule.component';
+import { SubmoduleprogressComponent } from './submoduleprogress/submoduleprogress.component';
 
 //Defines the NgModule which is established on application runtime
 //This is required for all Angular applications
@@ -30,7 +31,8 @@ import { SubmoduleComponent } from './submodule/submodule.component';
     ModulesComponent,
     TermsComponent,
     LoginComponent,
-    SubmoduleComponent
+    SubmoduleComponent,
+    SubmoduleprogressComponent
   ],
     //Define external imports from bootstrap and others
   imports: [

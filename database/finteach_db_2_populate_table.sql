@@ -1,8 +1,3 @@
--- ------------------------
--- Records of lkp_user_type
--- ------------------------
-INSERT INTO "lkp_user_type" VALUES ()
-
 -- -----------------
 -- Records of module
 -- -----------------

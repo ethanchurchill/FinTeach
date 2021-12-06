@@ -23,6 +23,7 @@ export class SubmoduleComponent implements OnInit {
 
   // Submodule content varaibles
   current_submodule?: any;
+  module_id?: any;
   submodules?: any; // list of all submodules for module_id
   current_quiz?: any;
   current_quiz_options?: any[];
@@ -44,15 +45,15 @@ export class SubmoduleComponent implements OnInit {
   ngOnInit(): void {
     // gets module_id from URL.
     const user_id = JSON.parse(localStorage.getItem('currentUser') || '{}').id;
-    var module_id = this.route.snapshot.paramMap.get("module_id");
+    this.module_id = this.route.snapshot.paramMap.get("module_id");
 
     // If user is logged in check for module progress. Otherwise, Set to start at the beginning of the module.
     if (user_id) {
       this.current_submodule = 0;
-      this.checkModuleProgress(module_id, user_id);
+      this.checkModuleProgress(this.module_id, user_id);
     } else {
       this.current_submodule = 0;
-      this.loadSubmodule(module_id);
+      this.loadSubmodule(this.module_id);
     }
   }
 
@@ -152,7 +153,9 @@ export class SubmoduleComponent implements OnInit {
     } else if (moveDirection == 1) { // move forward a submodule.
       this.current_submodule += 1;
       this.noPrevious = false;
-      this.progressContinue(this.module_progress.id, this.current_submodule + 1, false);
+      if (this.module_progress) {
+        this.progressContinue(this.module_progress.id, this.current_submodule + 1, false);
+      }
     }
 
     var submodule_id = this.submodules[this.current_submodule].id

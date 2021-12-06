@@ -2,11 +2,7 @@
 -- Delete Tables if they exists.
 -- -----------------------------
 DROP TABLE IF EXISTS "users" CASCADE;
-DROP TABLE IF EXISTS "classroom" CASCADE;
-DROP TABLE IF EXISTS "students" CASCADE;
-DROP TABLE IF EXISTS "lkp_user_type" CASCADE;
 DROP TABLE IF EXISTS "module_progress" CASCADE;
-DROP TABLE IF EXISTS "assigned_modules" CASCADE;
 DROP TABLE IF EXISTS "module" CASCADE;
 DROP TABLE IF EXISTS "submodule" CASCADE;
 DROP TABLE IF EXISTS "content_field" CASCADE;
@@ -29,24 +25,6 @@ CREATE TABLE "users" (
   -- "user_type" int
 );
 
--- CREATE TABLE "classroom" (
---   "id" SERIAL PRIMARY KEY,
---   "teacher_id" int,
---   "name" text,
---   "roster_count" int
--- );
---
--- CREATE TABLE "students" (
---   "id" SERIAL PRIMARY KEY,
---   "student_id" int,
---   "classroom_id" int
--- );
-
--- CREATE TABLE "lkp_user_type" (
---   "id" SERIAL PRIMARY KEY,
---   "type" varchar
--- );
-
 CREATE TABLE "module_progress" (
   "id" SERIAL PRIMARY KEY,
   "module_completed" boolean,
@@ -54,12 +32,6 @@ CREATE TABLE "module_progress" (
   "module_id" int,
   "user_id" int
 );
-
--- CREATE TABLE "assigned_modules" (
---   "id" SERIAL PRIMARY KEY,
---   "module_id" int,
---   "classroom_id" int
--- );
 
 CREATE TABLE "module" (
   "id" SERIAL PRIMARY KEY,
@@ -104,12 +76,6 @@ CREATE TABLE "quiz_options" (
   "order" int
 );
 
-CREATE TABLE "quiz_score" (
-  "id" SERIAL PRIMARY KEY,
-  "module_prog_id" int,
-  "score" float
-);
-
 CREATE TABLE "tags" (
   "id" SERIAL PRIMARY KEY,
   "module_id" int,
@@ -125,18 +91,6 @@ CREATE TABLE "lkp_tag" (
 -- Foreign Key Declaration
 -- -----------------------
 
--- ALTER TABLE "assigned_modules" ADD FOREIGN KEY ("module_id") REFERENCES "module" ("id");
-
--- ALTER TABLE "assigned_modules" ADD FOREIGN KEY ("classroom_id") REFERENCES "classroom" ("id");
-
--- ALTER TABLE "students" ADD FOREIGN KEY ("classroom_id") REFERENCES "classroom" ("id");
-
--- ALTER TABLE "students" ADD FOREIGN KEY ("student_id") REFERENCES "users" ("id");
-
--- ALTER TABLE "classroom" ADD FOREIGN KEY ("teacher_id") REFERENCES "users" ("id");
-
-ALTER TABLE "quiz_score" ADD FOREIGN KEY ("module_prog_id") REFERENCES "module_progress" ("id");
-
 ALTER TABLE "quiz" ADD FOREIGN KEY ("answer") REFERENCES "quiz_options" ("id");
 
 ALTER TABLE "quiz" ADD FOREIGN KEY ("p_submodule_id") REFERENCES "submodule" ("id");
@@ -146,8 +100,6 @@ ALTER TABLE "quiz_options" ADD FOREIGN KEY ("quiz_id") REFERENCES "quiz" ("id");
 ALTER TABLE "module_progress" ADD FOREIGN KEY ("user_id") REFERENCES "users" ("id");
 
 ALTER TABLE "module_progress" ADD FOREIGN KEY ("module_id") REFERENCES "module" ("id");
-
--- ALTER TABLE "users" ADD FOREIGN KEY ("user_type") REFERENCES "lkp_user_type" ("id");
 
 ALTER TABLE "tags" ADD FOREIGN KEY ("tag_id") REFERENCES "lkp_tag" ("id");
 

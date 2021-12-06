@@ -8,6 +8,20 @@
     display: inline-block;
 }
 
+.container h1 {
+    padding: 5px;
+    background: rgb(101, 205, 151);
+    border-style: solid;
+    color: black;
+}
+
+.container h2 {
+    padding: 5px;
+    background: rgb(147, 220, 182);
+    border-style: solid;
+    color: black;
+}
+
 .button {
     background: rgb(101, 205, 151);
     color: black;

@@ -68,11 +68,12 @@
       </div>
       <div id = "outer">
       <div class="form-group inner">
-        <button class="btn btn-primary btn-block" style = " margin-top:10px;" (click) = "onSubmit()">Register</button>
+        <button class="button btn btn-primary btn-block" style = " margin-top:10px;" (click) = "onSubmit()">Register</button>
       </div>
       <div class="form-group inner">
-        <button class="btn btn-primary btn-block" style = " margin-top:10px; margin-left: 10px"  (click) = "onSubmit()">Login</button>
+        <button class="button btn btn-primary btn-block" style = " margin-top:10px; margin-left: 10px"  (click) = "onSubmit()">Login</button>
       </div>
+      <div style="padding: 5px;"></div>
     </div>
 
       <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">

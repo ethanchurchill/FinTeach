@@ -6,18 +6,19 @@
             </h4>
             <button
                 type="button"
-                class="close"
+                class="close btn btn-outline-dark"
                 aria-label="Close"
                 (click)="modal.dismiss('Cross click')"
             >
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
+        <div style="padding: 5px;"></div>
         <div class="modal-body">
             <a>{{description}}</a>
         </div>
         <div class="modal-footer">
-          <button type="button" [routerLink]="['/submodule', this.module_id]" class="btn btn-outline-dark" (click)="modal.close('Save click');">Open</button>
+          <button type="button" [routerLink]="['/submodule', this.module_id]" class="button btn btn-outline-dark" (click)="modal.close('Save click');">Open</button>
         </div>
     </ng-template>
 

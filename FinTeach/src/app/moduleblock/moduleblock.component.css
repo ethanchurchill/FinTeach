@@ -1,0 +1,27 @@
+.modal-header {
+    padding: 5px;
+    background: rgb(60, 184, 120);
+}
+
+.modal-title {
+    padding: 7px;
+    background: rgb(101, 205, 151);
+    border-style: solid;
+    color: black;
+}
+
+.modal-footer {
+    padding: 5px;
+    background: rgb(60, 184, 120);
+}
+
+.close {
+    background: rgb(101, 205, 151);
+    font-weight: bold;
+    color: black;
+}
+
+.button {
+    background: rgb(101, 205, 151);
+    color: black;
+}

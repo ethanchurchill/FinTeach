@@ -1,18 +1,21 @@
 <div class="container">
   <h1>Dashboard</h1>
-  <div>
-    <h3>Modules in Progress:</h3>
-    <modulegallery [moduleList]="this.progressList"></modulegallery>
-    <div style="padding: 5px;"></div>
+  <div *ngIf="user_id; else elseBlock">
+    <div>
+      <h3>Modules in Progress:</h3>
+      <modulegallery [moduleList]="this.progressList"></modulegallery>
+      <div style="padding: 5px;"></div>
+    </div>
+    <div>
+      <h3>Completed Modules:</h3>
+      <modulegallery [moduleList]="this.completeList"></modulegallery>
+      <div style="padding: 5px;"></div>
+    </div>
+    <div>
+      <h3>Recommended Modules:</h3>
+      <!-- <modulegallery [moduleList]="this.dummyModules3"></modulegallery> -->
+      <div style="padding: 5px;"></div>
+    </div>
   </div>
-  <div>
-    <h3>Completed Modules:</h3>
-    <modulegallery [moduleList]="this.completeList"></modulegallery>
-    <div style="padding: 5px;"></div>
-  </div>
-  <div>
-    <h3>Recommended Modules:</h3>
-    <!-- <modulegallery [moduleList]="this.dummyModules3"></modulegallery> -->
-    <div style="padding: 5px;"></div>
-  </div>
+  <ng-template #elseBlock><p>Login to access your dashboard.</p></ng-template>
 </div>

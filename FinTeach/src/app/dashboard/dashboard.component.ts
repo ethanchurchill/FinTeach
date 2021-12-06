@@ -16,22 +16,23 @@ import { ModuleService } from 'src/app/services/module-service';
 export class DashboardComponent implements OnInit {
   completeList?: ModuleProgress[];
   progressList?: ModuleProgress[];
+  user_id?: any;
 
   //Initializes the backend retrieval services in the constructor
   constructor(private moduleService: ModuleService,
     private moduleProgressService: ModuleProgressService) { }
   //Runs on page initiliazation
   ngOnInit(): void {
-    const user_id = JSON.parse(localStorage.getItem('currentUser') || '{}').id;
-    //Initializes the modules and gets content from the DB
-    this.retrieveContents(user_id);
-    this.initializeModules();
+    this.user_id = JSON.parse(localStorage.getItem('currentUser') || '{}').id;
+
+    if (this.user_id) {
+      //Initializes the modules and gets content from the DB
+      this.retrieveContents(this.user_id);
+    } else {
+      console.log("Please log in to access your dashboard");
+    }
   }
 
-  //Populate dummy data into the module
-  //This will be replaced with database calls
-  initializeModules(): void {
-  }
   //First step at retrieving contents from the database
   //This part needs some work
   retrieveContents(user_id:any): void {

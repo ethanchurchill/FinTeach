@@ -152,7 +152,9 @@ export class SubmoduleComponent implements OnInit {
     } else if (moveDirection == 1) { // move forward a submodule.
       this.current_submodule += 1;
       this.noPrevious = false;
-      this.progressContinue(this.module_progress.id, this.current_submodule + 1, false);
+      if (this.module_progress) {
+        this.progressContinue(this.module_progress.id, this.current_submodule + 1, false);
+      }
     }
 
     var submodule_id = this.submodules[this.current_submodule].id
@@ -163,6 +165,7 @@ export class SubmoduleComponent implements OnInit {
     if (this.current_submodule == 0) {
       this.noPrevious = true;
     }
+    console.log(this.current_submodule, this.submodules.length-1);
 
     this.showDone = false;
     // disable next button if at the end of  the module.

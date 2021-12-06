@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Modules</h1>
-  <div *ngFor="let module of this.dummyModules">
+  <div *ngFor="let module of modules">
     <moduleblock [module_id]="module.id" [name]="module.name" [description]="module.description" [img_ref]="module.img_ref"></moduleblock>
     <hr>
   </div>

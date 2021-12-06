@@ -22,7 +22,6 @@ CREATE TABLE "users" (
   "name" text,
   "email" text,
   "created_date" timestamp
-  -- "user_type" int
 );
 
 CREATE TABLE "module_progress" (
@@ -40,7 +39,7 @@ CREATE TABLE "module" (
   "description" text,
   "img_ref" text,
   "module_length" text,
-  "etc" text, --estimated time of completion
+  "etc" text --estimated time of completion
 );
 
 CREATE TABLE "submodule" (
@@ -65,7 +64,7 @@ CREATE TABLE "quiz" (
   "id" SERIAL PRIMARY KEY,
   "p_submodule_id" int,
   "question" text,
-  "answer" int
+  "answer" int,
   "img_ref" varchar
 );
 

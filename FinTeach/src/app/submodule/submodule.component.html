@@ -22,13 +22,13 @@
   </div>
   <div class="row">
     <div class="col">
-      <button (click)="moveSubmodule(-1)" [disabled]="noPrevious" type="button" class="btn btn-primary">Previous</button>
+      <button (click)="moveSubmodule(-1)" [disabled]="noPrevious" type="button" class="button btn btn-primary">Previous</button>
     </div>
     <div class="col" *ngIf="showDone == false">
-      <button (click)="moveSubmodule(1)" type="button" class="btn btn-primary">Next</button>
+      <button (click)="moveSubmodule(1)" type="button" class="button btn btn-primary">Next</button>
     </div>
     <div class="col" *ngIf="showDone == true">
-      <button (click)="progressContinue(module_progress.id, current_submodule + 1, true)" [routerLink]="['/dashboard']" type="button" class="btn btn-primary">Done</button>
+      <button (click)="progressContinue(module_progress.id, current_submodule + 1, true)" [routerLink]="['/dashboard']" type="button" class="button btn btn-primary">Done</button>
     </div>
   </div>
 </div>

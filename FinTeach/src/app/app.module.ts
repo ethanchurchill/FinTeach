@@ -17,6 +17,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { SubmoduleComponent } from './submodule/submodule.component';
 import { SubmoduleprogressComponent } from './submoduleprogress/submoduleprogress.component';
+import { FilterPipe } from './filter.pipe';
 
 //Defines the NgModule which is established on application runtime
 //This is required for all Angular applications
@@ -32,7 +33,8 @@ import { SubmoduleprogressComponent } from './submoduleprogress/submoduleprogres
     TermsComponent,
     LoginComponent,
     SubmoduleComponent,
-    SubmoduleprogressComponent
+    SubmoduleprogressComponent,
+    FilterPipe
   ],
     //Define external imports from bootstrap and others
   imports: [

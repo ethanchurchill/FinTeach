@@ -68,7 +68,7 @@
       </div>
       <div id = "outer">
       <div class="form-group inner">
-        <button class="button btn btn-primary btn-block" style = " margin-top:10px;" (click) = "onSubmit()">Register</button>
+        <button class="button btn btn-primary btn-block" routerLink = "/login" style = " margin-top:10px;" (click) = "onSubmit()">Register</button>
       </div>
       <div class="form-group inner">
         <button class="button btn btn-primary btn-block" style = " margin-top:10px; margin-left: 10px"  (click) = "onSubmit()">Login</button>
@@ -87,14 +87,28 @@
   
   </div>
   <div *ngIf = "displayInfo" class="container">
-    <h1>Profile Information</h1>
-    <h2>Username</h2>
+    <h1 style = "text-align: center;">Profile Information</h1>
+    <h3>Username</h3>
     <p> {{this.username}} </p>
+    <h3>Email</h3>
+    <p> {{this.username}} </p>
+    
   
       
   </div>
   <div class="form-group" *ngIf="isSuccessful">
     <button class="btn btn-primary btn-block" (click) = "logout()">Logout</button>
   </div>
-
+  <div class="form-group" *ngIf="isSuccessful">
+    <button class="btn btn-primary btn-block" (click) = "logout()">Change Password</button>
+  </div>
+  <div id = "outer">
+    <div class="form-group inner">
+      <button class="button btn btn-primary btn-block" style = " margin-top:10px;" (click) = "logout()">Logout</button>
+    </div>
+    <div class="form-group inner">
+      <button class="button btn btn-primary btn-block" style = " margin-top:10px; margin-left: 10px"  (click) = "onSubmit()">Change Password</button>
+    </div>
+    <div style="padding: 5px;"></div>
+  </div>
 </div>

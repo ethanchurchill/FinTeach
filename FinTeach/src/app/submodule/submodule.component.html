@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col">
       <app-submodule-progress [module_id]="module_id" [current_submodule]="current_submodule"></app-submodule-progress>
+      <div style="padding: 5px;"></div>
     </div>
     <div class="col-8">
       <div>
@@ -38,6 +39,7 @@
           <button (click)="progressContinue(module_progress.id, current_submodule + 1, true)" [routerLink]="['/dashboard']" type="button" class="button btn btn-primary">Done</button>
         </div>
       </div>
+      <div style="padding: 5px;"></div>
     </div>
   </div>
 </div>

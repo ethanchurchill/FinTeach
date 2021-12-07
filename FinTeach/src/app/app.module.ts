@@ -3,9 +3,9 @@
 //It also defines external imports utilized by our application
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NavBar } from './navbar/navbar.component'
-import { ModuleBlock } from 'src/app/moduleblock/moduleblock.component';
-import { ModuleGallery } from 'src/app/modulegallery/modulegallery.component';
+import { NavBarComponent } from './navbar/navbar.component'
+import { ModuleBlockComponent } from 'src/app/moduleblock/moduleblock.component';
+import { ModuleGalleryComponent } from 'src/app/modulegallery/modulegallery.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -25,9 +25,9 @@ import { FilterPipe } from './filter.pipe';
     //Declare each of the components that need to be rendered
   declarations: [
     AppComponent,
-    NavBar,
-    ModuleBlock,
-    ModuleGallery,
+    NavBarComponent,
+    ModuleBlockComponent,
+    ModuleGalleryComponent,
     DashboardComponent,
     ModulesComponent,
     TermsComponent,

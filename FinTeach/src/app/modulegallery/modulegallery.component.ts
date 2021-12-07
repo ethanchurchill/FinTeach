@@ -6,12 +6,12 @@ import { Component, Input } from '@angular/core';
 import { Module } from 'src/app/models/module-model';
 
 @Component({
-    selector:'modulegallery',
+    selector:'app-module-gallery',
     templateUrl:'./modulegallery.component.html',
     styleUrls:['./modulegallery.component.css']
 })
 
-export class ModuleGallery {
+export class ModuleGalleryComponent {
     //A list of modules consumed by the HTML
     @Input() moduleList?: Module[];
 }

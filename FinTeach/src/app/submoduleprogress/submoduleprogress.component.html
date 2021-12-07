@@ -3,7 +3,7 @@
     Module Progress:
   </div>
   <ul class="list-group list-group-flush" *ngFor="let submodule of submodules;">
-    <li class="list-group-item" *ngIf="submodule.id-1 == current_submodule; else elseBlock"><b>{{ submodule.title }}</b></li>
+    <li class="list-group-item" *ngIf="submodule.id-1 === current_submodule; else elseBlock"><b>{{ submodule.title }}</b></li>
     <ng-template #elseBlock><li class="list-group-item">{{ submodule.title }}</li></ng-template>
   </ul>
 </div>

@@ -3,12 +3,12 @@
   <div *ngIf="user_id; else elseBlock">
     <div>
       <h3>Modules in Progress:</h3>
-      <modulegallery [moduleList]="this.progressList"></modulegallery>
+      <app-module-gallery [moduleList]="this.progressList"></app-module-gallery>
       <div style="padding: 5px;"></div>
     </div>
     <div>
       <h3>Completed Modules:</h3>
-      <modulegallery [moduleList]="this.completeList"></modulegallery>
+      <app-module-gallery [moduleList]="this.completeList"></app-module-gallery>
       <div style="padding: 5px;"></div>
     </div>
     <div>

@@ -5,12 +5,12 @@ import { Component, Input } from '@angular/core';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-    selector:'moduleblock',
+    selector:'app-module-block',
     templateUrl:'./moduleblock.component.html',
     styleUrls:['./moduleblock.component.css']
 })
 
-export class ModuleBlock {
+export class ModuleBlockComponent {
     //Getting the name description and image reference for the module
     @Input() name?: string;
     @Input() description?: string;

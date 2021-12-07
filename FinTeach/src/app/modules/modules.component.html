@@ -9,7 +9,7 @@
           autofocus>
       </div>
       <div *ngFor="let module of modules | appFilter:searchText">
-        <moduleblock [module_id]="module.id" [name]="module.name" [description]="module.description" [img_ref]="module.img_ref"></moduleblock>
+        <app-module-block [module_id]="module.id" [name]="module.name" [description]="module.description" [img_ref]="module.img_ref"></app-module-block>
         <hr>
       </div>
     </div>

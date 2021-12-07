@@ -148,9 +148,11 @@ export class SubmoduleComponent implements OnInit {
   }
 
   // Triggered when form is submitted.
-  onSubmit(f: NgForm) {
-   console.log(f.value);  // { first: '', last: '' }
-   console.log(f.valid);  // false
+  onSubmit(form: NgForm) {
+   console.log(form.value);
+   // Object.keys(form.value).forEach((key: any) => {
+   //   form.value
+   // });
  }
 
   //Moves forward or backward in submodule progress

@@ -12,7 +12,9 @@
         <div *ngIf="submodules[current_submodule].type == 'c'">
           <div>
              <div *ngFor="let contentfield of current_content_field;">
-                <h2>{{ contentfield.subtitle }}</h2>
+                <div *ngIf="contentfield.subtitle">
+                  <h2>{{ contentfield.subtitle }}</h2>
+                </div>
                 <p>{{ contentfield.material }}</p>
              </div>
             </div>

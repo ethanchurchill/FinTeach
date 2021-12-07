@@ -8,6 +8,7 @@ module.exports = app => {
     //API Endpoint to retrieve all users
     router.get("/", users.findAll);
     router.post("/", users.create);
-  
+    router.get("/from_username/:username", users.findFromUsername);
+
     app.use('/api/users', router);
   };

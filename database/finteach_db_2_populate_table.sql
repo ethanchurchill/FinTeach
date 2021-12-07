@@ -95,15 +95,3 @@ INSERT INTO quiz_options VALUES (9, 3, 'Rather giving a dividends and company mi
 INSERT INTO quiz_options VALUES (10, 3, 'The company is greedy.', 2);
 INSERT INTO quiz_options VALUES (11, 3, 'The investor isn''t interested in receiving a dividends.', 3);
 INSERT INTO quiz_options VALUES (12, 3, 'Dividends make the stock less desirable for an investor.', 4);
-
-
--- ---------------
--- Records of tags
--- ---------------
-INSERT INTO 'tags' VALUES ()
-
-
--- ------------------
--- Records of lkp_tag
--- ------------------
-INSERT INTO 'lkp_tag' VALUES ()

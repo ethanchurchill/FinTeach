@@ -3,7 +3,7 @@
     <div class="col-3">
       <submoduleprogress [module_id]="module_id" [current_submodule]="current_submodule"></submoduleprogress>
     </div>
-    <div class="col-9">
+    <div class="col-9" *ngIf="submodules;">
       <div class="row">
         <h1>{{ submodules[current_submodule].title }}</h1>
         <p>{{ submodules[current_submodule].description }}</p>
@@ -18,11 +18,18 @@
           </ul>
         </div>
         <div *ngIf="submodules[current_submodule].type == 'q'">
-          <ul>
-             <li *ngFor="let quiz of current_quiz;">
-                <p>{{ quiz.question }}</p>
-             </li>
-          </ul>
+          <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+            <div *ngFor="let quiz of current_quiz; let i = index;">
+               <p>{{ quiz.question }}</p>
+               <div *ngIf="current_quiz_options;">
+                 <div *ngFor="let quiz_option of current_quiz_options[i]">
+                   <input type="radio" id="{{ quiz_option.id }}" name="{{ quiz.id }}_quiz" value="{{ quiz_option.id }}" ngModel>
+                   <label for="{{ quiz_option.id }}">{{ quiz_option.content }}</label><br>
+                 </div>
+               </div>
+            </div>
+            <button>Submit</button>
+          </form>
         </div>
       </div>
       <div class="row">

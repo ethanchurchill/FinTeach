@@ -16,7 +16,7 @@ Navigate to the FinTeach/FinTeach folder within the base directory. Run the foll
 `npm install` <br />
 `npm start` <br />
 Upon succesfully running each of these three commands, the frontend on its own will be up and running. <br />
-It can be viewed by opening your browser and navigating to [here](http://localhost:4200/) <br />
+It can be viewed by opening your browser and navigating to [http://localhost:4200/](http://localhost:4200/) <br />
 
 
 ## Express Server
@@ -31,7 +31,7 @@ Once these values are updated, you can run the Express server. Run the following
 `npm install` <br />
 `node server.js` <br />
 Upon successfully running these commands, the express server will be up and running. <br />
-It can be viewed by opening your browser and navigating to [here](http://localhost:8080/) <br />
+It can be viewed by opening your browser and navigating to [http://localhost:8080/](http://localhost:8080/) <br />
 
 
 ## Project Structure

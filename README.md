@@ -11,7 +11,7 @@ Before running the application, make sure [postgres](https://www.postgresql.org/
 
 ## Frontend
 
-Navigate to the FinTeach/FinTeach folder within the base directory. Run the following commands
+Navigate to the FinTeach/FinTeach folder within the base directory. Run the following commands <br />
 `npm install -g @angular/cli`
 `npm install`
 `npm start`

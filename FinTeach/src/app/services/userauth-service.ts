@@ -31,4 +31,9 @@ export class AuthService {
     
   }
 
+    // API request to database to get quizs based on parent submodule id.
+    getFromUsername(username:any): Observable<Users[]> {
+      return this.http.get<Users[]>(baseUrl+"/from_username/"+username);
+    }
+
 }

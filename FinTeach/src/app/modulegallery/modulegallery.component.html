@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm" *ngFor="let module of this.moduleList">
-      <moduleblock [module_id]="module.id" [name]="module.name" [description]="module.description" [img_ref]="module.img_ref"></moduleblock>
+      <app-module-block [module_id]="module.id" [name]="module.name" [description]="module.description" [img_ref]="module.img_ref"></app-module-block>
     </div>
   </div>
 </div>

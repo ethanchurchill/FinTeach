@@ -44,4 +44,4 @@ It can be viewed by opening your browser and navigating to [http://localhost:808
 
 ## Project Structure
 
-The FinTeach/FinTeach directory contains the components for the frontend of the application while the nodejs-express-sequelize-postgresql directory contains the backend.
+The FinTeach/FinTeach directory contains the components for the frontend of the application. The nodejs-express-sequelize-postgresql directory contains the backend. The database folder contains the database sql scripts.

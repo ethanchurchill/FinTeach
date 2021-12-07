@@ -6,7 +6,7 @@
 
 ## Getting Started
 
-Before running the application, make sure [postgres](https://www.postgresql.org/download/) and [node](https://nodejs.org/en/) are installed on your machine. Once postgres and node are installed, pull the latest code and navigate to the project directory . <br />
+Before running the application, make sure [postgres](https://www.postgresql.org/download/) and [node](https://nodejs.org/en/) are installed on your machine. Once postgres and node are installed, clone the repo, navigate project directory and checkout master for the latest stable version. <br />
 Postgres: https://www.postgresql.org/download/ <br />
 Node: https://nodejs.org/en/download/  <br />
 

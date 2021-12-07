@@ -23,13 +23,15 @@ INSERT INTO submodule VALUES (6, 1, 'Stocks Module Quiz', NULL, 'q', 6);
 INSERT INTO submodule VALUES (7, 2, 'What is a budget?', NULL, 'c', 1);
 INSERT INTO submodule VALUES (8, 2, 'How to start?', NULL, 'c', 2);
 INSERT INTO submodule VALUES (9, 2, 'Example Budgeting plans and Budgeting Tips', NULL, 'c', 3);
+INSERT INTO submodule VALUES (10, 2, 'Budget Module Quiz', NULL, 'q', 4);
 
 -- Credit module submodules
-INSERT INTO submodule VALUES (10, 3, 'What is credit?', NULL, 'c', 1);
-INSERT INTO submodule VALUES (11, 3, 'Types of Credit', NULL, 'c', 2);
-INSERT INTO submodule VALUES (12, 3, 'Why is credit important?', NULL, 'c', 3);
-INSERT INTO submodule VALUES (13, 3, 'How to increase your credit?', NULL, 'c', 4);
-INSERT INTO submodule VALUES (14, 3, 'Credit cards', NULL, 'c', 5);
+INSERT INTO submodule VALUES (11, 3, 'What is credit?', NULL, 'c', 1);
+INSERT INTO submodule VALUES (12, 3, 'Types of Credit', NULL, 'c', 2);
+INSERT INTO submodule VALUES (13, 3, 'Why is credit important?', NULL, 'c', 3);
+INSERT INTO submodule VALUES (14, 3, 'How to increase your credit?', NULL, 'c', 4);
+INSERT INTO submodule VALUES (15, 3, 'Credit cards', NULL, 'c', 5);
+INSERT INTO submodule VALUES (16, 3, 'Credit Module Quiz', NULL, 'q', 6);
 
 
 -- ------------------------
@@ -55,21 +57,21 @@ INSERT INTO content_field VALUES (14, 9, 'Example Budgeting plans', '50/30/20 ru
 INSERT INTO content_field VALUES (15, 9, 'Budgeting Tips', 'Keep track of your expenses using a spreadsheet. Examples: Eg. Mint lifestyle, Google Drive budget spreadsheets, NerdWallet budget, etc.', NULL, 2);
 
 -- Credit module content.
-INSERT INTO content_field VALUES (16, 10, '', 'According to Oxford dictionary, Credit is: “The ability of a customer to obtain goods or services before payment, based on the trust that payment will be made in the future.”', NULL, 1);
-INSERT INTO content_field VALUES (17, 10, '', 'To the extent that creditors consider you worthy of their trust, you are said to be creditworthy, or to have "good credit."', NULL, 2);
-INSERT INTO content_field VALUES (18, 10, 'How as credit done in the past? How is it done now?', 'In centuries past, creditors might have gauged your creditworthiness by reputation alone. Obviously, this method was subjective and prone to error, manipulation and bias. These days, creditors prefer a more objective approach. In the U.S., typically they look at your credit history—your record of borrowing and repaying funds—as a first step in determining whether to issue you credit.', NULL, 3);
-INSERT INTO content_field VALUES (19, 10, 'Information in the credit report', 'The number of credit card accounts owned, their borrowing limits and current outstanding balance. Amount of loans taken out, how much paid back. Punctuality of monthly payments. Severe financial setbacks such as mortgage foreclosures, car repossession, bankruptcies.', NULL, 4);
-INSERT INTO content_field VALUES (20, 10, 'Credit score', 'Creditors use a credit score as the first step to decide whether or not to issue credit. A credit score is a three digit number that portrays the information on the credit in an easy to interpret manner and in a fair unbiased way.', NULL, 5);
-INSERT INTO content_field VALUES (21, 11, 'Revolving Credit', 'You can repeatably burrow money from a credit account up to a limit. You can pay it back over time.', NULL, 1);
-INSERT INTO content_field VALUES (22, 11, 'Charge Cards', 'Required to be payed off in full every month.', NULL, 2);
-INSERT INTO content_field VALUES (23, 11, 'Installment Credit', 'A loan that you pay off over a fixed period of time.', NULL, 3);
-INSERT INTO content_field VALUES (24, 12, '', 'Good credit is needed if you plan to borrow money for larger purchases, such as a car or house. Credit cards offer a convenient way to pay, as well as purchase-protection, more on this later. A higher credit score can lead to better interest and terms on loans and credit cards. As well as better credit card rewards depending on the company. Including lenders, there are many other organizations that will use your credit score. For example, landlords use credit scores to decide to rent an apartment to a certain person and insurance companies use credit scores to determine rates.', NULL, 1);
-INSERT INTO content_field VALUES (25, 13, 'Using a credit card', 'Repaying your debts on time shows on your credit score. However, getting a credit card requires good credit history, more on this in credit card section.', NULL, 2);
-INSERT INTO content_field VALUES (26, 13, 'Without a credit card', 'Pay off all existing loans on a timely manner. Lenders look if your loan balances are trending towards zero.', NULL, 3);
-INSERT INTO content_field VALUES (27, 13, '', 'Installment loans: Loans that are paid back through monthly payments, such as student loans, mortgage, auto. Paying back these loans on time will improve your credit score.', NULL, 4);
-INSERT INTO content_field VALUES (28, 13, '', 'Non-profit lending circles: Group of people that lend to each other to increase their credit', NULL, 5);
-INSERT INTO content_field VALUES (29, 13, '', 'Add monthly bills, just as phone bill and utility bills to credit report.', NULL, 6);
-INSERT INTO content_field VALUES (30, 14, '', 'Allows cardholders to borrow funds with which to purchase goods. Purchase-protection: benefit that allows consumers to file a claim with their issuer to receive replacement, repair or reimbursement for any eligible stolen or damaged items.', NULL, 1);
+INSERT INTO content_field VALUES (16, 11, '', 'According to Oxford dictionary, Credit is: “The ability of a customer to obtain goods or services before payment, based on the trust that payment will be made in the future.”', NULL, 1);
+INSERT INTO content_field VALUES (17, 11, '', 'To the extent that creditors consider you worthy of their trust, you are said to be creditworthy, or to have "good credit."', NULL, 2);
+INSERT INTO content_field VALUES (18, 11, 'How as credit done in the past? How is it done now?', 'In centuries past, creditors might have gauged your creditworthiness by reputation alone. Obviously, this method was subjective and prone to error, manipulation and bias. These days, creditors prefer a more objective approach. In the U.S., typically they look at your credit history—your record of borrowing and repaying funds—as a first step in determining whether to issue you credit.', NULL, 3);
+INSERT INTO content_field VALUES (19, 11, 'Information in the credit report', 'The number of credit card accounts owned, their borrowing limits and current outstanding balance. Amount of loans taken out, how much paid back. Punctuality of monthly payments. Severe financial setbacks such as mortgage foreclosures, car repossession, bankruptcies.', NULL, 4);
+INSERT INTO content_field VALUES (20, 11, 'Credit score', 'Creditors use a credit score as the first step to decide whether or not to issue credit. A credit score is a three digit number that portrays the information on the credit in an easy to interpret manner and in a fair unbiased way.', NULL, 5);
+INSERT INTO content_field VALUES (21, 12, 'Revolving Credit', 'You can repeatably burrow money from a credit account up to a limit. You can pay it back over time.', NULL, 1);
+INSERT INTO content_field VALUES (22, 12, 'Charge Cards', 'Required to be payed off in full every month.', NULL, 2);
+INSERT INTO content_field VALUES (23, 12, 'Installment Credit', 'A loan that you pay off over a fixed period of time.', NULL, 3);
+INSERT INTO content_field VALUES (24, 13, '', 'Good credit is needed if you plan to borrow money for larger purchases, such as a car or house. Credit cards offer a convenient way to pay, as well as purchase-protection, more on this later. A higher credit score can lead to better interest and terms on loans and credit cards. As well as better credit card rewards depending on the company. Including lenders, there are many other organizations that will use your credit score. For example, landlords use credit scores to decide to rent an apartment to a certain person and insurance companies use credit scores to determine rates.', NULL, 1);
+INSERT INTO content_field VALUES (25, 14, 'Using a credit card', 'Repaying your debts on time shows on your credit score. However, getting a credit card requires good credit history, more on this in credit card section.', NULL, 2);
+INSERT INTO content_field VALUES (26, 14, 'Without a credit card', 'Pay off all existing loans on a timely manner. Lenders look if your loan balances are trending towards zero.', NULL, 3);
+INSERT INTO content_field VALUES (27, 14, '', 'Installment loans: Loans that are paid back through monthly payments, such as student loans, mortgage, auto. Paying back these loans on time will improve your credit score.', NULL, 4);
+INSERT INTO content_field VALUES (28, 14, '', 'Non-profit lending circles: Group of people that lend to each other to increase their credit', NULL, 5);
+INSERT INTO content_field VALUES (29, 14, '', 'Add monthly bills, just as phone bill and utility bills to credit report.', NULL, 6);
+INSERT INTO content_field VALUES (30, 15, '', 'Allows cardholders to borrow funds with which to purchase goods. Purchase-protection: benefit that allows consumers to file a claim with their issuer to receive replacement, repair or reimbursement for any eligible stolen or damaged items.', NULL, 1);
 
 
 -- ---------------
@@ -78,6 +80,12 @@ INSERT INTO content_field VALUES (30, 14, '', 'Allows cardholders to borrow fund
 INSERT INTO quiz VALUES (1, 6, 'What is the name of the unit stocks are denoted in?', 2, NULL);
 INSERT INTO quiz VALUES (2, 6, 'Why would a company issue more stock?', 8, NULL);
 INSERT INTO quiz VALUES (3, 6, 'Which of the following is a reason a company might not provide a dividends?', 9, NULL);
+INSERT INTO quiz VALUES (4, 10, 'Which of the following is not included on a budget?', 16, NULL);
+INSERT INTO quiz VALUES (5, 10, 'What is the recommended time frame to budget for?', 18, NULL);
+INSERT INTO quiz VALUES (6, 10, 'How are the three expenditure categories divided under the 50/30/20 rule?', 21, NULL);
+INSERT INTO quiz VALUES (7, 16, 'Which of the following is not found in a credit report?', 28, NULL);
+INSERT INTO quiz VALUES (8, 16, 'Which of the following is not a type of credit?', 31, NULL);
+INSERT INTO quiz VALUES (9, 16, 'What is purchase protection?', 33, NULL);
 
 
 -- -----------------------
@@ -95,3 +103,27 @@ INSERT INTO quiz_options VALUES (9, 3, 'Rather giving a dividends and company mi
 INSERT INTO quiz_options VALUES (10, 3, 'The company is greedy.', 2);
 INSERT INTO quiz_options VALUES (11, 3, 'The investor isn''t interested in receiving a dividends.', 3);
 INSERT INTO quiz_options VALUES (12, 3, 'Dividends make the stock less desirable for an investor.', 4);
+INSERT INTO quiz_options VALUES (13, 4, 'Income', 1);
+INSERT INTO quiz_options VALUES (14, 4, 'Bills', 2);
+INSERT INTO quiz_options VALUES (15, 4, 'Shopping', 3);
+INSERT INTO quiz_options VALUES (16, 4, 'None of the above', 4);
+INSERT INTO quiz_options VALUES (17, 5, 'A week', 1);
+INSERT INTO quiz_options VALUES (18, 5, 'A month', 2);
+INSERT INTO quiz_options VALUES (19, 5, 'A quarter', 3);
+INSERT INTO quiz_options VALUES (20, 5, 'A year', 4);
+INSERT INTO quiz_options VALUES (21, 6, '50% needs, 30% wants, 20% savings.', 1);
+INSERT INTO quiz_options VALUES (22, 6, '50% savings, 30% needs, 20% wants.', 2);
+INSERT INTO quiz_options VALUES (23, 6, '50% needs, 30% savings, 20% wants.', 3);
+INSERT INTO quiz_options VALUES (24, 6, '50% wants, 30% needs, 20% savings.', 4);
+INSERT INTO quiz_options VALUES (25, 7, 'Monthly payments', 1);
+INSERT INTO quiz_options VALUES (26, 7, 'Amount of outstanding loans', 2);
+INSERT INTO quiz_options VALUES (27, 7, 'Credit card information', 3);
+INSERT INTO quiz_options VALUES (28, 7, 'Criminal record', 4);
+INSERT INTO quiz_options VALUES (29, 8, 'Revolving Credit', 1);
+INSERT INTO quiz_options VALUES (30, 8, 'Service Credit', 2);
+INSERT INTO quiz_options VALUES (31, 8, 'Investment Credit', 3);
+INSERT INTO quiz_options VALUES (32, 8, 'Installment Credit', 4);
+INSERT INTO quiz_options VALUES (33, 9, 'Ability to be refunded for lost, damaged, or stolen items.', 1);
+INSERT INTO quiz_options VALUES (34, 9, 'Legal protection from credit card fraud.', 2);
+INSERT INTO quiz_options VALUES (35, 9, 'A guarantee that your payment will be processed.', 3);
+INSERT INTO quiz_options VALUES (36, 9, 'A security deposit made when getting a credit card.', 4);

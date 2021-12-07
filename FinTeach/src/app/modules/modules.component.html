@@ -1,7 +1,17 @@
 <div class="container">
+  
   <h1>Modules</h1>
-  <div *ngFor="let module of modules">
-    <moduleblock [module_id]="module.id" [name]="module.name" [description]="module.description" [img_ref]="module.img_ref"></moduleblock>
-    <hr>
+  <div class="content" role="main">
+    <div class="card">
+      <div class="form-group">
+        <input type="email" class="form-control" id="search-text" aria-describedby="search-text" 
+          [(ngModel)]="searchText" placeholder="Enter text to search" 
+          autofocus>
+      </div>
+      <div *ngFor="let module of modules | appFilter:searchText">
+        <app-module-block [module_id]="module.id" [name]="module.name" [description]="module.description" [img_ref]="module.img_ref"></app-module-block>
+        <hr>
+      </div>
+    </div>
   </div>
 </div>

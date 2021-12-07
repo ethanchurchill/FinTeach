@@ -55,3 +55,24 @@ exports.findAll = (req, res) => {
       });
     });
 };
+
+// Find all quizes with a given parent submodule id from the database.
+exports.findFromUsername = (req, res) => {
+  const id = req.params.username;
+
+  Users.findAll({ where: { username: id } })
+    .then(data => {
+      if (data) {
+        res.send(data);
+      } else {
+        res.status(404).send({
+          message: "Cannot find Tutorial with p_submodule_id=${p_submodule_id}."
+        });
+      }
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: "Error retrieving Quiz with p_submodule_id=" + req.params.p_submodule_id
+      });
+    });
+};

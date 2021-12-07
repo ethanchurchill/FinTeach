@@ -12,7 +12,18 @@ import { ModuleService } from 'src/app/services/module-service';
   styleUrls: ['./modules.component.css']
 })
 export class ModulesComponent implements OnInit {
-  modules?: Module[];
+  searchText = '';
+  characters = [
+    'Ant-Man',
+    'Aquaman',
+    'Asterix',
+    'The Atom',
+    'The Avengers',
+    'Batgirl',
+    'Batman',
+    'Batwoman'
+    ];
+  modules: Module[];
   showModule: any;
 
   constructor(private moduleService: ModuleService) { }
@@ -33,5 +44,7 @@ export class ModulesComponent implements OnInit {
           console.log(error);
         });
   }
+
+  
 
 }

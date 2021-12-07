@@ -3,7 +3,7 @@ import { SubmoduleService } from 'src/app/services/submodule-service';
 
 
 @Component({
-  selector: 'submoduleprogress',
+  selector: 'app-submodule-progress',
   templateUrl: './submoduleprogress.component.html',
   styleUrls: ['./submoduleprogress.component.css']
 })

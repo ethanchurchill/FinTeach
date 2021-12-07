@@ -1,0 +1,9 @@
+<div class="card" style="width: 18rem;">
+  <div class="header card-header">
+   <b>Module Progress:</b>
+  </div>
+  <ul class="header list-group list-group-flush" *ngFor="let submodule of submodules; let i = index;">
+    <li class="subheader list-group-item" *ngIf="i == current_submodule; else elseBlock"><b>{{ submodule.title }}</b></li>
+    <ng-template #elseBlock><li class="list-group-item">{{ submodule.title }}</li></ng-template>
+  </ul>
+</div>

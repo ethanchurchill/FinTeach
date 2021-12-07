@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <app-submodule-progress [module_id]="module_id" [current_submodule]="current_submodule"></app-submodule-progress>
+      <div style="padding: 5px;"></div>
+    </div>
+    <div class="col-8" *ngIf="submodules;">
+      <div>
+        <h1>{{ submodules[current_submodule].title }}</h1>
+        <p>{{ submodules[current_submodule].description }}</p>
+      </div>
+      <div>
+        <div *ngIf="submodules[current_submodule].type === 'c'">
+          <div>
+             <div *ngFor="let contentfield of current_content_field;">
+               <div *ngIf="contentfield.subtitle">
+                <h3>{{ contentfield.subtitle }}</h3>
+              </div>
+                <p>{{ contentfield.material }}</p>
+             </div>
+            </div>
+        </div>
+        <div *ngIf="submodules[current_submodule].type == 'q'">
+          <div *ngIf="!submitted; else elseBlock">
+            <form #form="ngForm" (ngSubmit)="onSubmit(form)" novalidate>
+              <div *ngFor="let quiz of current_quiz; let i = index;">
+                 <p>{{ quiz.question }}</p>
+                 <div *ngIf="current_quiz_options;">
+                   <div *ngFor="let quiz_option of current_quiz_options[i]" class="form-check">
+                     <input class="form-check-input" type="radio" id="{{ quiz_option.id }}" name="{{ quiz.id }}_quiz" value="{{ quiz_option.id }}" ngModel>
+                     <label class="form-check-label" for="{{ quiz_option.id }}">{{ quiz_option.content }}</label><br>
+                   </div>
+                   <br>
+                 </div>
+              </div>
+              <button class="btn btn-primary">Submit</button><br><br>
+            </form>
+          </div>
+          <ng-template #elseBlock>
+            <div *ngFor="let quiz of current_quiz; let i = index;">
+              <p>{{ quiz.question }}</p>
+              <div *ngIf="current_quiz_options;">
+                <div *ngFor="let quiz_option of current_quiz_options[i]" class="form-check">
+                  <div *ngIf="quiz.answer == quiz_option.id; else elseBlock">
+                    <p style="color:green;">{{ quiz_option.content }}<p>
+                  </div>
+                  <ng-template #elseBlock>
+                    <div *ngIf="quiz_option.id == answers[quiz.id+'_quiz']; else elseBlock">
+                      <p style="color:red;">{{ quiz_option.content }}<p>
+                    </div>
+                    <ng-template #elseBlock>
+                      <p>{{ quiz_option.content }}<p>
+                    </ng-template>
+                  </ng-template>
+                </div>
+                <br>
+              </div>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <button (click)="moveSubmodule(-1)" [disabled]="noPrevious" type="button" class="button btn btn-primary">Previous</button>
+        </div>
+        <div class="col" *ngIf="showDone === false">
+          <button (click)="moveSubmodule(1)" type="button" class="button btn btn-primary">Next</button>
+        </div>
+        <div class="col" *ngIf="showDone === true">
+          <button (click)="progressContinue(module_progress.id, current_submodule + 1, true)" [routerLink]="['/dashboard']" type="button" class="button btn btn-primary">Done</button>
+        </div>
+      </div>
+      <div style="padding: 5px;"></div>
+    </div>
+  </div>
+</div>

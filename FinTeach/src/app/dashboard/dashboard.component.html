@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Dashboard</h1>
+  <div *ngIf="user_id; else elseBlock">
+    <div>
+      <h3>Modules in Progress:</h3>
+      <app-module-gallery [moduleList]="this.progressList"></app-module-gallery>
+      <div style="padding: 5px;"></div>
+    </div>
+    <div>
+      <h3>Completed Modules:</h3>
+      <app-module-gallery [moduleList]="this.completeList"></app-module-gallery>
+      <div style="padding: 5px;"></div>
+    </div>
+    <div>
+      <h3>Recommended Modules:</h3>
+      <!-- <modulegallery [moduleList]="this.dummyModules3"></modulegallery> -->
+      <div style="padding: 5px;"></div>
+    </div>
+  </div>
+  <ng-template #elseBlock><p>Login to access your dashboard.</p></ng-template>
+</div>

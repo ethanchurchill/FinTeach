@@ -1,0 +1,13 @@
+/* Header/logo Title */
+.header {
+  padding: 10px;
+  text-align: center;
+  background: rgb(60, 184, 120);
+  border-style: solid;
+  color: black;
+}
+
+/* Increase the font size of the heading */
+.header h1 {
+  font-size: 50px;
+}

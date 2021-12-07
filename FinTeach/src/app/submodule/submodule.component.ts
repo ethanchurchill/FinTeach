@@ -2,6 +2,7 @@
 //This encompasses the submodule pages on each module
 //There is data retrieval as well as frontend modifications
 import { Component, OnInit, Input } from '@angular/core';
+import {NgForm} from '@angular/forms';
 import { SubmoduleService } from 'src/app/services/submodule-service';
 import { QuizService } from 'src/app/services/quiz-service';
 import { QuizOptionsService } from 'src/app/services/quizoptions-service';
@@ -11,7 +12,6 @@ import { QuizOptions } from 'src/app/models/quizoptions-model';
 import { Quiz } from 'src/app/models/quiz-model';
 import { ModuleProgress } from 'src/app/models/moduleprogress-model';
 import {ActivatedRoute} from '@angular/router';
-
 
 
 @Component({
@@ -34,6 +34,8 @@ export class SubmoduleComponent implements OnInit {
   noPrevious?: any;
   showDone?: any;
 
+  answers?: any;
+  submitted = false;
 
   constructor(private submoduleService: SubmoduleService,
               private quizService: QuizService,
@@ -46,6 +48,8 @@ export class SubmoduleComponent implements OnInit {
     // gets module_id from URL.
     const user_id = JSON.parse(localStorage.getItem('currentUser') || '{}').id;
     this.module_id = this.route.snapshot.paramMap.get("module_id");
+
+    this.current_quiz_options = [];
 
     // If user is logged in check for module progress. Otherwise, Set to start at the beginning of the module.
     if (user_id) {
@@ -126,23 +130,43 @@ export class SubmoduleComponent implements OnInit {
         .subscribe(
           data => {
             this.current_quiz = data;
+            this.current_quiz.forEach((quiz: any) => {
+              this.quizoptionsService.getFromQuizId(quiz.id) //add function to get quiz options based on quiz
+                .subscribe(
+                  data => {
+                    if (this.current_quiz_options) {
+                      this.current_quiz_options.push(data);
+                    }
+                  },
+                  error => {
+                    console.log(error);
+                  });
+            });
           },
           error => {
             console.log(error);
           });
-
-      // this.current_quiz.forEach(quiz => {
-      //   this.quizoptionsService.getFromQuizId(quiz.id) //add function to get quiz options based on quiz
-      //     .subscribe(
-      //       data => {
-      //         this.current_quiz_options.push(data);
-      //       },
-      //       error => {
-      //         console.log(error);
-      //       });
-      // });
     }
   }
+
+  // Triggered when form is submitted.
+  onSubmit(form: NgForm) {
+   // Object.keys(form.value).forEach((key: any) => {
+   //   this.current_quiz.forEach((quiz: any) => {
+   //     if ((quiz.id + "_quiz") == key) {
+   //       if (quiz.answer == form.value[key]) {
+   //         this.answers.push(true);
+   //         console.log("Correct!");
+   //       } else {
+   //         this.answers.push(false);
+   //         console.log("Not correct!");
+   //       }
+   //     }
+   //   });
+   // });
+   this.submitted = true;
+   this.answers = form.value;
+ }
 
   //Moves forward or backward in submodule progress
   //Changes variables that are utilized by the HTML to determine which progress

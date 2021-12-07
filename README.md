@@ -6,9 +6,17 @@
 
 ## Getting Started
 
-Before running the application, make sure [postgres](https://www.postgresql.org/download/) and [node](https://nodejs.org/en/) are installed on your machine. Once postgres and node are installed, pull the latest code and navigate to the project directory .
+Before running the application, make sure [postgres](https://www.postgresql.org/download/) and [node](https://nodejs.org/en/) are installed on your machine. Once postgres and node are installed, pull the latest code and navigate to the project directory . <br />
+Postgres: https://www.postgresql.org/download/ <br />
+Node: https://nodejs.org/en/download/  <br />
 
 
+## Backend 
+Ensure PostgreSQL and PGAdmin are installed using the link above
+Navigate to the database folder in the base directory and get the two sql files there for use below <br />
+Create a new database called finteach_db and set postgres as the user. <br />
+Open a new query and run the contents of finteach_db_1_create_schema.sql. <br />
+Open a new query and run the contents of finteach_db_2_populate_table.sql. <br />
 ## Frontend
 
 Navigate to the FinTeach/FinTeach folder within the base directory. Run the following commands <br />

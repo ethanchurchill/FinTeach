@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
   };
   users: Users[];
   username = '';
+  email = '';
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
@@ -43,7 +44,7 @@ export class LoginComponent implements OnInit {
     }
     if(this.displayInfo == true) {
       this.username = currentUser.username;
-      // this.email = currentUser.email;
+      this.email = currentUser.email;
        
     }
   }

@@ -1,6 +1,5 @@
 <div class="col-md-12">
-  <div class="card card-container">
-
+  <div>
     <form
       *ngIf="!isSuccessful"
       name="form"
@@ -74,7 +73,7 @@
         <button class="button btn btn-primary btn-block" style = " margin-top:10px; margin-left: 10px"  (click) = "onLogin()">Login</button>
       </div>
       <div style="padding: 5px;"></div>
-    </div>
+      </div>
 
       <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
         Signup failed!<br />{{ errorMessage }}
@@ -91,23 +90,11 @@
     <h3>Username</h3>
     <p> {{this.username}} </p>
     <h3>Email</h3>
-    <p> {{this.username}} </p>
+    <p> {{this.email}} </p>
     
-  
-      
-  </div>
-  <!-- <div class="form-group" *ngIf="isSuccessful">
-    <button class="btn btn-primary btn-block" (click) = "logout()">Logout</button>
-  </div>
-  <div class="form-group" *ngIf="isSuccessful">
-    <button class="btn btn-primary btn-block" (click) = "logout()">Change Password</button>
-  </div> -->
   <div id = "outer">
     <div class="form-group inner" *ngIf="isSuccessful">
       <button class="button btn btn-primary btn-block" style = " margin-top:10px;" (click) = "logout()">Logout</button>
-    </div>
-    <div class="form-group inner" *ngIf="isSuccessful" >
-      <button class="button btn btn-primary btn-block" style = " margin-top:10px; margin-left: 10px"  (click) = "onSubmit()">Change Password</button>
     </div>
     <div style="padding: 5px;"></div>
   </div>

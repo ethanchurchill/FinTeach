@@ -1,21 +1,24 @@
 <div class="container">
   <div class="row">
-    <div class="col-3">
+    <div class="col">
       <app-submodule-progress [module_id]="module_id" [current_submodule]="current_submodule"></app-submodule-progress>
+      <div style="padding: 5px;"></div>
     </div>
-    <div class="col-9" *ngIf="submodules;">
-      <div class="row">
+    <div class="col-8" *ngIf="submodules;">
+      <div>
         <h1>{{ submodules[current_submodule].title }}</h1>
         <p>{{ submodules[current_submodule].description }}</p>
       </div>
-      <div class="row">
+      <div>
         <div *ngIf="submodules[current_submodule].type === 'c'">
-          <ul>
-             <li *ngFor="let contentfield of current_content_field;">
+          <div>
+             <div *ngFor="let contentfield of current_content_field;">
+               <div *ngIf="contentfield.subtitle">
                 <h3>{{ contentfield.subtitle }}</h3>
+              </div>
                 <p>{{ contentfield.material }}</p>
-             </li>
-          </ul>
+             </div>
+            </div>
         </div>
         <div *ngIf="submodules[current_submodule].type == 'q'">
           <div *ngIf="!submitted; else elseBlock">
@@ -67,6 +70,7 @@
           <button (click)="progressContinue(module_progress.id, current_submodule + 1, true)" [routerLink]="['/dashboard']" type="button" class="button btn btn-primary">Done</button>
         </div>
       </div>
+      <div style="padding: 5px;"></div>
     </div>
   </div>
 </div>

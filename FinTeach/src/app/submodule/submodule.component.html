@@ -1,21 +1,21 @@
 <div class="container">
   <div class="row">
-    <div class="col-3">
+    <div class="col">
       <submoduleprogress [module_id]="module_id" [current_submodule]="current_submodule"></submoduleprogress>
     </div>
-    <div class="col-9">
-      <div class="row">
+    <div class="col-8">
+      <div>
         <h1>{{ submodules[current_submodule].title }}</h1>
         <p>{{ submodules[current_submodule].description }}</p>
       </div>
-      <div class="row">
+      <div>
         <div *ngIf="submodules[current_submodule].type == 'c'">
-          <ul>
-             <li *ngFor="let contentfield of current_content_field;">
+          <div>
+             <div *ngFor="let contentfield of current_content_field;">
                 <h2>{{ contentfield.subtitle }}</h2>
                 <p>{{ contentfield.material }}</p>
-             </li>
-          </ul>
+             </div>
+            </div>
         </div>
         <div *ngIf="submodules[current_submodule].type == 'q'">
           <ul>

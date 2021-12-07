@@ -34,6 +34,8 @@ export class SubmoduleComponent implements OnInit {
   noPrevious?: any;
   showDone?: any;
 
+  answers?: any;
+  submitted = false;
 
   constructor(private submoduleService: SubmoduleService,
               private quizService: QuizService,
@@ -149,10 +151,21 @@ export class SubmoduleComponent implements OnInit {
 
   // Triggered when form is submitted.
   onSubmit(form: NgForm) {
-   console.log(form.value);
    // Object.keys(form.value).forEach((key: any) => {
-   //   form.value
+   //   this.current_quiz.forEach((quiz: any) => {
+   //     if ((quiz.id + "_quiz") == key) {
+   //       if (quiz.answer == form.value[key]) {
+   //         this.answers.push(true);
+   //         console.log("Correct!");
+   //       } else {
+   //         this.answers.push(false);
+   //         console.log("Not correct!");
+   //       }
+   //     }
+   //   });
    // });
+   this.submitted = true;
+   this.answers = form.value;
  }
 
   //Moves forward or backward in submodule progress
